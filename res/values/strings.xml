@@ -10,7 +10,7 @@
     <string name="recTask">Where do\nI eat?</string>
     <string name="search_hint">food</string>
     <string name="recommendation">Recommendation</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Log Out</string>
     <string name="action_register">Register Device</string>
     <string name="logo">Logo</string>
     <string name="title_activity_create_account">Create Account</string>
