@@ -1,10 +1,6 @@
 package helper;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +13,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.Toast;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 	
@@ -61,12 +55,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String REVIEW_COMMENT = "comment";
     private static final String REVIEW_DATE = "date";
     
-    private static final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    //private static final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
 	public DatabaseHandler(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, version);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public DatabaseHandler(Context context) {
@@ -75,40 +68,44 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
+		createDB(db);
+	}
+
+	private void createDB(SQLiteDatabase db) {
+
 		String CREATE_USER_TABLE = "CREATE TABLE " +  TABLE_USERS + "( " +
 				USER_EMAIL + " TEXT PRIMARY KEY, " + 
 				USER_PASSWORD + " TEXT, " +
 				USER_FIRSTNAME + " TEXT, "+
 				USER_LASTNAME + " TEXT, " +
-				USER_VEGETERIAN + " INT, " +
-				USER_VEGAN + " INT, " +
-				USER_GLUTEN + " INT, " +
+				USER_VEGETERIAN + " INTEGER, " +
+				USER_VEGAN + " INTEGER, " +
+				USER_GLUTEN + " INTEGER, " +
 				USER_BUDGET + " REAL)";
 		
 		String CREATE_EATERY_TABLE = "CREATE TABLE " +  TABLE_EATERY + "( " +
-				EATERY_ID + " INT PRIMARY KEY, " + 
+				EATERY_ID + " INTEGER PRIMARY KEY, " + 
 				EATERY_NAME + " TEXT, " +
 				EATERY_ADDRESS1 + " TEXT, "+
 				EATERY_ADDRESS2 + " TEXT, " +
 				EATERY_ADDRESS3 + " TEXT, " +
-				EATERY_VEGETERIAN + " INT, " +
-				EATERY_VEGAN + " INT, " +
-				EATERY_KOSHER + " INT, " +
-				EATERY_WIFI + " INT, " +
-				EATERY_PARKING + " INT, " +
-				EATERY_LPRICE + " INT, " +
-				EATERY_MPRICE + " INT, " +
-				EATERY_HPRICE + " INT)";
+				EATERY_VEGETERIAN + " INTEGER, " +
+				EATERY_VEGAN + " INTEGER, " +
+				EATERY_KOSHER + " INTEGER, " +
+				EATERY_WIFI + " INTEGER, " +
+				EATERY_PARKING + " INTEGER, " +
+				EATERY_LPRICE + " INTEGER, " +
+				EATERY_MPRICE + " INTEGER, " +
+				EATERY_HPRICE + " INTEGER)";
 		
 		String CREATE_REVIEW_TABLE = "CREATE TABLE " +  TABLE_REVIEW + "( " +
 				REVIEW_EMAIL + " TEXT NOT NULL, " + 
 				REVIEW_EATERY + " INT NOT NULL, " +
-				REVIEW_FOOD + " INT, " +
-				REVIEW_AMBIENCE + " INT, " +
-				REVIEW_ECONOMY + " INT, " +
-				REVIEW_CLEANLINESS + " INT, " +
-				REVIEW_SERVICE + " INT, " +
+				REVIEW_FOOD + " REAL, " +
+				REVIEW_AMBIENCE + " REAL, " +
+				REVIEW_ECONOMY + " REAL, " +
+				REVIEW_CLEANLINESS + " REAL, " +
+				REVIEW_SERVICE + " REAL, " +
 				REVIEW_COMMENT + " TEXT, " +
 				REVIEW_DATE + " DATE, " +
 				"PRIMARY KEY(" + REVIEW_EMAIL + ", " +  REVIEW_EATERY + "))";
@@ -118,6 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(CREATE_EATERY_TABLE);
 		db.execSQL(CREATE_REVIEW_TABLE);
 		populate(db);
+			
 	}
 
 	@Override
@@ -131,42 +129,44 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public void populate(SQLiteDatabase db){
 		List<User> users = new ArrayList<User>();
 		users.add(new User("poual001@umn.edu", "Joel001", "Joel", "Poualeu",  0, 0, 0, 5));
-		users.add(new User("prasa077@umn.edu", "Prati077", "Pratbhibha", "Prasanna Kumar",  1, 0, 0, 6 ));
+		users.add(new User("prasa077@umn.edu", "Prati077", "Prathibha", "Prasanna Kumar",  1, 0, 0, 6 ));
 		users.add(new User("shahx118@umn.edu", "Sam118", "Sameera", "Shah",  1, 1, 1, 7 ));
 		users.add(new User("sharm274@umn.edu", "Shrimi274", "Shrimi", "Sharma",  0, 0, 0, 8 ));
 		users.add(new User("umesh001@umn.edu", "Varun001", "Varun", "Umesh",  1, 1, 1, 6 ));
 		
 		List<Eatery> eateries = new ArrayList<Eatery>();
-		eateries.add(new Eatery(1, "Topio’s", "Coffman Union‘s Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 1, 1));
-		eateries.add(new Eatery(2, "Baja Sol", "Coffman Union‘s Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
+		eateries.add(new Eatery(1, "Topio's", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 1, 1));
+		eateries.add(new Eatery(2, "Baja Sol", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
 		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower Lower Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 0, 0));
-		eateries.add(new Eatery(4, "Hay Loft Café ", "Ben Pomeroy Center , Ground Level ", " St. Paul", "55108", 0, 1, 0, 1, 0, 1, 0, 0));
+		eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center , Ground Level", " St. Paul", "55108", 0, 1, 0, 1, 0, 1, 0, 0));
 		eateries.add(new Eatery(5, "Panda Express", "Carlson School of Management, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 0, 0));
-		eateries.add(new Eatery(6, "Wise Owl Café", "Walter Library , Lower Level", "East Bank", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(7, "Jamba Juice", "Coffman Union‘s Minnesota Marketplace ", "First Floor (next to the Commuter’s Lounge)", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(8, "Papa John’s", "St. Paul Student Center’s Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
+		eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library , Lower Level", "East Bank", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
+		eateries.add(new Eatery(7, "Jamba Juice", "Coffman Union's Minnesota Marketplace ", "First Floor (next to the Commuter's Lounge)", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
+		eateries.add(new Eatery(8, "Papa John's", "St. Paul Student Center's Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
 		eateries.add(new Eatery(9, "Burger Studio", "Carlson School of Management, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
 		eateries.add(new Eatery(10, "Bistro West Restaurant", "Humphrey Center, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(11, "Chick-fil-A", "Coffman Union‘s Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
-		eateries.add(new Eatery(12, "Greens To Go", "St. Paul Student Center’s Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
+		eateries.add(new Eatery(11, "Chick-fil-A", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
+		eateries.add(new Eatery(12, "Greens To Go", "St. Paul Student Center's Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
 		eateries.add(new Eatery(13, "Subway", "Essentials Market in Blegen Hall, Lowel Level West Bank","Minneapolis","55455",0, 1, 0, 1, 0, 1, 1, 1));
-		
+		eateries.add(new Eatery(14, "Abduls Afandy", "614 Washington Ave SE, Minneapolis","MN","55455",0, 1, 0, 1, 0, 1, 1, 1));
+
 		List<Review> reviews = new ArrayList<Review>();
-		reviews.add(new Review("poual001@umn.edu", 1, 2, 3, 3, 3, 2, "", new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 1, 3, 3, 3, 3, 3, "", new Date()));
-		reviews.add(new Review("prasa077@umn.edu", 2, 4, 1, 4, 4, 3, "Love it!", new Date()));
-		reviews.add(new Review("sharm274@umn.edu", 2, 3, 4 , 3, 3, 1, "", new Date()));
-		reviews.add(new Review("sharm274@umn.edu", 3, 3, 3, 3, 4, 3, "Love the Mint Condition Mocha!!", new Date()));
-		reviews.add(new Review("umesh001@umn.edu", 3, 3, 4, 3, 3, 1, "", new Date()));
+	//	reviews.add(new Review("poual001@umn.edu", 1, 2, 3, 3, 3, 2, "", new Date()));
+	//	reviews.add(new Review("shahx118@umn.edu", 1, 3, 3, 3, 3, 3, "", new Date()));
+		reviews.add(new Review("poual001@umn.edu", 2, 4, 1, 4, 4, 3, "Love it!", new Date()));
+		reviews.add(new Review("shahx118@umn.edu", 2, 3, 4 , 3, 3, 1, "", new Date()));
+		reviews.add(new Review("poual001@umn.edu", 3, 3, 3, 3, 4, 3, "Love the Mint Condition Mocha!!", new Date()));
 		reviews.add(new Review("shahx118@umn.edu", 3, 3, 2, 3, 3, 1, "Pumpkin Spice Latte is awesome.", new Date()));
-		reviews.add(new Review("prasa077@umn.edu", 5, 2, 1, 4, 4, 3, "", new Date()));
-		reviews.add(new Review("umesh001@umn.edu", 5, 4, 4, 5, 3, 1, "", new Date()));
+		reviews.add(new Review("poual001@umn.edu", 5, 2, 1, 4, 4, 3, "", new Date()));
+		reviews.add(new Review("shahx118@umn.edu", 5, 4, 4, 5, 3, 1, "", new Date()));
 		reviews.add(new Review("poual001@umn.edu", 7, 2, 1, 4, 4, 3, "", new Date()));
-		reviews.add(new Review("umesh001@umn.edu", 7, 4, 4, 5, 3, 1, "", new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 8, 2, 1, 4, 4, 3, "", new Date()));
-		reviews.add(new Review("sharm274@umn.edu", 8, 4, 4, 5, 3, 1, "", new Date()));
+		reviews.add(new Review("shahx118@umn.edu", 7, 4, 4, 5, 3, 1, "", new Date()));
+		reviews.add(new Review("poual001@umn.edu", 8, 2, 1, 4, 4, 3, "", new Date()));
+		reviews.add(new Review("shahx118@umn.edu", 8, 4, 4, 5, 3, 1, "", new Date()));
 		reviews.add(new Review("poual001@umn.edu", 9, 2, 1, 4, 4, 3, "Burgers are pretty good", new Date()));
 		reviews.add(new Review("shahx118@umn.edu", 9, 4, 4, 5, 3, 1, "", new Date()));
+		reviews.add(new Review("poual001@umn.edu", 14, 4, 4, 5, 3, 1, "Best Middle Eastern Food", new Date()));
+
 		
 		ContentValues values;
 
@@ -306,7 +306,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					reviews.add(new Review(cursor.getString(0), cursor.getInt(1), cursor.getInt(2), 
 							   cursor.getInt(3), cursor.getInt(4), cursor.getInt(5), cursor.getInt(6), cursor.getString(7), new Date()));
 				//} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					//e.printStackTrace();
 				//}
 	           } while (cursor.moveToNext());
