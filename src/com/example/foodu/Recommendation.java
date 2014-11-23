@@ -2,7 +2,9 @@ package com.example.foodu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -11,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -86,9 +89,7 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 	public void onClick(View arg0) {
 		switch(arg0.getId()){
 		case R.id.cuisine:
-			final CharSequence[] items = {"American", "Indian", "Italian",
-					"Greek", "Chinese", "Thai", "Mexican", "Vietnamese",
-					"MiddleEast"};
+			final CharSequence[] items = {"American","Cafe","Chinese","Italian","Juices","Mexican","Vietnamese"};
 		    final boolean[] states = new boolean[items.length];
 		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		    builder.setTitle("Which cuisine do you want?");
@@ -98,15 +99,22 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		    });
 		    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int id) {
+		        	ArrayList<Integer> selctedList=new ArrayList<Integer>();
 		            SparseBooleanArray CheCked = ((AlertDialog)dialog).getListView().getCheckedItemPositions();
 		            String result = "";
 		            for (int i = 0; i < items.length; i++) {
 	                    if (states[i]) {
 	                    	result = result + (String) items[i] + "\n";
+	                    	selctedList.add(i);
 	                    }
 	                }
-		            Toast.makeText(getBaseContext(), "Selected Cuisines\n"+ result, Toast.LENGTH_LONG).show();
+		            
+		            /* Get a random choice out of the selected items, this number is passed to the CuisineRecommendation class*/
+		            
+		            int randomChoice = generateRandomChoice(selctedList);
+		            //Toast.makeText(getBaseContext(), "Selected Cuisines\n"+ result, Toast.LENGTH_LONG).show();
 		            Intent userrecommendation = new Intent(Recommendation.this, CuisineRecommendation.class);
+		            userrecommendation.putExtra("randomChoiceVariable",randomChoice);
 				    startActivity(userrecommendation);
 		        }
 		    });
@@ -122,6 +130,18 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 			Intent userrecommendation = new Intent(Recommendation.this, UserRecommendation.class);
 		    startActivity(userrecommendation);
 			break;
+		}
+		
+	}
+	
+	private int generateRandomChoice(ArrayList<Integer> myList){
+		if(myList!=null){
+			Log.d("ArrayListThings", "The contents of the arraylist are-->" +myList);
+			Collections.shuffle(myList, new Random());
+			return myList.get(0).intValue();
+		}
+		else{
+			return 100;
 		}
 		
 	}
