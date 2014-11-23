@@ -13,7 +13,7 @@
     <string name="action_settings">Log Out</string>
     <string name="action_register">Register Device</string>
     <string name="logo">Logo</string>
-    <string name="title_activity_create_account">Create Account</string>
+    <string name="title_activity_create_account">Update Account</string>
     <string name="hello_world">Hello world!</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
@@ -31,7 +31,7 @@
     <string name="food_veg">Vegetarian</string>
     <string name="toggle_button">Toggle</string>
     <string name="avg_budget">Budget per meal $:</string>
-    <string name="create_account">Create Account</string>
+    <string name="create_account">Update Account</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="price_range">Price</string>
     <string name="dollar">$</string>
@@ -66,5 +66,20 @@
     <string name="cancel_search">Cancel</string>
     <string name="title_activity_user_recommendation">Profile Recommendation</string>
     <string name="title_activity_cuisine_recommendation">Cuisine Recommendation</string>
-
+    <string name="fav_cuisine">Favourite Cuisines</string>
+    <string name="cuisine_one">Cuisine 1</string>
+    <string-array name="Cuisines_array">
+        <item>Select</item>
+        <item>Indian</item>
+        <item>American</item>
+        <item>Italian</item>
+        <item>Mexican</item>
+        <item>Chinese</item>
+        <item>Thai</item>
+        <item>Vietnamese</item>
+        <item>MiddleEast</item>
+    </string-array>
+    <string name="select_cuisine">Select a Cuisine</string>
+    <string name="cuisine_two">Cuisine 2</string>
+    <string name="cuisine_three">Cuisine 3</string>
 </resources>

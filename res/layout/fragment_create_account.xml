@@ -144,6 +144,66 @@
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
                 android:inputType="number" />
+            <TextView
+            android:id="@+id/favCuisinetextView"
+            style="@style/profileLbl"
+            android:layout_below="@+id/textView6"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="25dip"
+            android:text="@string/fav_cuisine" />
+            
+            <TextView
+            android:id="@+id/cuisine1textView"
+            style="@style/profileLbl"
+            android:layout_below="@+id/favCuisinetextView"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="15dip"
+            android:text="@string/cuisine_one" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cuisine1textView"
+                android:layout_toRightOf="@+id/textView6"
+                android:prompt="@string/select_cuisine" />
+            
+ 			<TextView
+	            android:id="@+id/cuisine2textView"
+	            style="@style/profileLbl"
+	            android:layout_below="@+id/cuisine1textView"
+	            android:layout_marginBottom="5dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginTop="15dip"
+	            android:text="@string/cuisine_two" />
+
+      		<Spinner
+      		    android:id="@+id/spinner2"
+      		    android:layout_width="wrap_content"
+      		    android:layout_height="wrap_content"
+      		    android:layout_alignTop="@+id/cuisine2textView"
+      		    android:layout_below="@+id/spinner1"
+      		    android:layout_toRightOf="@+id/textView6"
+      		    android:prompt="@string/select_cuisine" />
+        <TextView
+	            android:id="@+id/cuisine3textView"
+	            style="@style/profileLbl"
+	            android:layout_below="@+id/cuisine2textView"
+	            android:layout_marginBottom="5dip"
+	            android:layout_marginLeft="10dip"
+	            android:layout_marginTop="15dip"
+	            android:text="@string/cuisine_three" />
+
+      		<Spinner
+      		    android:id="@+id/spinner3"
+      		    android:layout_width="wrap_content"
+      		    android:layout_height="wrap_content"
+      		    android:layout_alignTop="@+id/cuisine3textView"
+      		    android:layout_below="@+id/spinner3"
+      		    android:layout_toRightOf="@+id/textView6"
+      		    android:prompt="@string/select_cuisine" />
         </RelativeLayout>
 
         <Button
@@ -151,6 +211,7 @@
             style="@style/button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dip"
             android:layout_gravity="center_horizontal"
             android:text="@string/create_account" />
     </LinearLayout>
