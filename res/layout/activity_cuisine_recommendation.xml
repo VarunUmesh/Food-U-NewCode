@@ -70,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
                 android:text="Fancy this?"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -96,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
                 android:layout_weight=".6"
-                android:text="Fish Sandich\n$5"
+                android:text="Fish Sandwich\n$5"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 

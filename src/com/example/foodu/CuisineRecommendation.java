@@ -1,21 +1,20 @@
 package com.example.foodu;
 
-import model.Eatery;
 import helper.DatabaseHandler;
+import model.Eatery;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ImageView;
-import android.util.LogPrinter;
-import android.util.Log;
+import android.widget.TextView;
 
 public class CuisineRecommendation extends Activity implements OnClickListener {
 
@@ -82,7 +81,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						logoForRandom.setImageResource(R.drawable.subway);
 						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
 						foodImageForRandom.setImageResource(R.drawable.sandwish);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Veggie Delight\n$5");
 						break;
 						
 			case 1:
@@ -92,11 +91,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						addressForRandom = (TextView) findViewById(R.id.button_text);
 						foodImageForRandom = (ImageView) findViewById(R.id.numberDays);
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
-						titleForRandom.setText("How about Caribou Cafe?");
+						titleForRandom.setText("How about Caribou?");
 						logoForRandom.setImageResource(R.drawable.cariboulogo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Moos Tower\nLower Level\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.cariboufood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Chai Tea Latte\n$4");
 						break;
 						
 			case 2:
@@ -108,9 +107,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
 						titleForRandom.setText("How about Panda Express?");
 						logoForRandom.setImageResource(R.drawable.pandaexpresslogo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Coffman Union's Minnesota Marketplace\nGround Level\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.pandaexpressfood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Eggplant Tofu\n$7");
 						break;
 						
 			case 3:
@@ -120,11 +119,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						addressForRandom = (TextView) findViewById(R.id.button_text);
 						foodImageForRandom = (ImageView) findViewById(R.id.numberDays);
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
-						titleForRandom.setText("How about Topios?");
+						titleForRandom.setText("How about Topio's?");
 						logoForRandom.setImageResource(R.drawable.topiologo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Coffman Union's Minnesota Marketplace\nGround Level\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.topiofood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Veggie Pizza Slice\n$3");
 						break;
 						
 			case 4:
@@ -136,9 +135,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
 						titleForRandom.setText("How about Jamba Juice?");
 						logoForRandom.setImageResource(R.drawable.jambajuicelogo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Coffman Union's Minnesota Marketplace\nFirst Floor\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.jambajuicefood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Acai Super-Antioxidant Smoothie\n$6");
 						break;
 						
 			case 5:
@@ -150,9 +149,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
 						titleForRandom.setText("How about Baja Sol?");
 						logoForRandom.setImageResource(R.drawable.bajasollogo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Coffman Union's Minnesota Marketplace\nGround Level\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.bajasolfood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Chicken Burrito\n$7");
 						break;
 						
 			case 6:
@@ -164,9 +163,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
 						titleForRandom.setText("How about Bun Mi?");
 						logoForRandom.setImageResource(R.drawable.bunmilogo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("604 Washington Ave SE\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.bunmifood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Mock Duck Curry Sandwich\n$6.40");
 						break;
 						
 			default:
@@ -176,11 +175,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 						addressForRandom = (TextView) findViewById(R.id.button_text);
 						foodImageForRandom = (ImageView) findViewById(R.id.numberDays);
 						foodDescForRandom = (TextView) findViewById(R.id.foodDesc);
-						titleForRandom.setText("How about Topios?");
+						titleForRandom.setText("How about Topio's?");
 						logoForRandom.setImageResource(R.drawable.topiologo);
-						addressForRandom.setText("Coffman Union\n3rd Floor\nWest bank");
+						addressForRandom.setText("Coffman Union's Minnesota Marketplace\nGround Level\nEast bank");
 						foodImageForRandom.setImageResource(R.drawable.topiofood);
-						foodDescForRandom.setText("Fish Sandich\n$5");
+						foodDescForRandom.setText("Cheese Pizza\n$3");
 						break;
 		}
 		
@@ -210,7 +209,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			if(count < 2){
 				count++;
 				Eatery e = db.getEatery(count+1);
-				title.setText("How about " + e.getName());
+				title.setText("How about " + e.getName() + "?");
 				address.setText(e.getAddress1() + "\n" + e.getAddress2() + "\n" + e.getAddress3());
 			}
 			else{
