@@ -47,7 +47,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_calender">Calender</string>
     <string name="menu_copy">Copy</string>
-    <string name="title_activity_review">Review</string>
+    <string name="title_activity_review">Write Review</string>
     <string name="title_activity_user_review">Add Review</string>
     <string name="dollar_sm">$</string>
     <string name="dollar_md">$$</string>

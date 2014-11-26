@@ -67,7 +67,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		eateryCount = db.getEateries().size();
 		int recom = getRecommendation();
 		Eatery e = db.getEatery(recom);
-		title.setText(phrases.get(count) + e.getName());
+		title.setText(phrases.get(count) + e.getName() + "?");
 		address.setText(e.getAddress1() + "\n" + e.getAddress2() + "\n" + e.getAddress3());
 		Bitmap bitmap = BitmapFactory.decodeByteArray(e.getLogo(), 0, e.getLogo().length);
         logo.setImageBitmap(bitmap);
@@ -121,7 +121,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			else{
 				new AlertDialog.Builder(this)
 			    .setTitle("Sorry")
-			    .setMessage("Sorry you did not like our recommendations. Please build your profile and we will do better next time")
+			    .setMessage("Sorry you did not like our recommendations. Please try again next time.")
 			    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			        public void onClick(DialogInterface dialog, int which) { 
 			        	Intent i = new Intent(getApplication(), MainActivity.class);
