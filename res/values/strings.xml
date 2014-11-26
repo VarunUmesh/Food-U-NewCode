@@ -66,5 +66,6 @@
     <string name="cancel_search">Cancel</string>
     <string name="title_activity_user_recommendation">Profile Recommendation</string>
     <string name="title_activity_cuisine_recommendation">Cuisine Recommendation</string>
+    <string name="title_activity_food_search">FoodSearch</string>
 
 </resources>

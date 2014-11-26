@@ -3,7 +3,7 @@ package com.example.adapters;
 import java.util.List;
 
 public class ItemModel {
-	private int icon;
+	private byte[] icon;
 	private String title;
 	private String description;
 	private String subdescription;
@@ -16,7 +16,7 @@ public class ItemModel {
         super();
     }
     
-    public ItemModel(int icon, String title, String desc, String desc2, String ex, String id, int key) {
+    public ItemModel(byte[] icon, String title, String desc, String desc2, String ex, String id, int key) {
         super();
         this.icon = icon;
         this.title = title;
@@ -52,7 +52,7 @@ public class ItemModel {
     	return extra;
     }
     
-    public int getIcon(){
+    public byte[] getIcon(){
     	return icon;
     }
     

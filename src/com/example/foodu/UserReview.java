@@ -6,6 +6,11 @@ import model.Eatery;
 import helper.DatabaseHandler;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +26,13 @@ import android.widget.Toast;
 public class UserReview extends Activity implements OnClickListener {
 
 	DatabaseHandler db = new DatabaseHandler(this);
-	TextView title, address1, address2;
+	TextView title, address;
 	RatingBar food,ambience,economy, cleanliness,service;
+	ImageView logo;
 	EditText comments;
 	Button submitReview;
 	Eatery e;
+	model.Review review;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,8 +40,15 @@ public class UserReview extends Activity implements OnClickListener {
 		
 		Intent intent = getIntent(); 
 		int id = intent.getIntExtra("EATERY", 1);
-		//Toast.makeText(this, "th " + id, Toast.LENGTH_LONG).show();
+		int eatery = intent.getIntExtra("EATERY", -1);
+		String user = intent.getStringExtra("USER");
+		
+		if(eatery != -1 && user != null && !user.isEmpty())
+			review = db.getUserEateryReview(user, eatery);
 		e = db.getEatery(id);
+		logo = (ImageView) findViewById(R.id.restauLogo);
+		Bitmap bitmap = BitmapFactory.decodeByteArray(e.getLogo(), 0, e.getLogo().length);
+        logo.setImageBitmap(bitmap);
 	}
 
 	@Override
@@ -42,11 +57,11 @@ public class UserReview extends Activity implements OnClickListener {
 		getMenuInflater().inflate(R.menu.user_review, menu);
 		
 		title = (TextView) findViewById(R.id.review_restaurant_name);
-		address1 = (TextView) findViewById(R.id.review_rest_address1);
-		address2 = (TextView) findViewById(R.id.review_rest_address2);
+		address = (TextView) findViewById(R.id.review_rest_address);
+		
 		title.setText(e.getName());
-		address1.setText(e.getAddress1());
-		address2.setText(e.getAddress2() + "\n" + e.getAddress3());
+		address.setText(e.getAddress1() + "\n" + e.getAddress2() + "\n" + e.getAddress3());
+
 		food = (RatingBar)findViewById(R.id.food_stars);
 		ambience = (RatingBar)findViewById(R.id.ambience_stars);
 		economy = (RatingBar)findViewById(R.id.economical_stars);
@@ -54,7 +69,19 @@ public class UserReview extends Activity implements OnClickListener {
 		service = (RatingBar)findViewById(R.id.service_stars);
 		comments = (EditText)findViewById(R.id.et_comments);
 		submitReview = (Button)findViewById(R.id.btn_submit);
+		
+		
 		submitReview.setOnClickListener(this);
+		
+		
+		if(review != null){
+		ambience.setRating(review.getAmbience());
+		economy.setRating(review.getEconomy());
+		cleanliness.setRating(review.getCleanliness());
+		service.setRating(review.getService());
+		food.setRating(review.getFood());
+		comments.setText(review.getComment());
+		}
 		
 		return true;
 	}

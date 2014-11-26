@@ -1,5 +1,6 @@
 package com.example.foodu;
 
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -49,7 +50,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 		           (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 		MenuItem searchItem = menu.findItem(R.id.action_search);
 		  SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-		Log.e("err", "is null " + (searchView == null));
+		  searchView.setQueryHint("restaurant or food item");
+
 		    searchView.setSearchableInfo(
 		            searchManager.getSearchableInfo(getComponentName()));
 		    searchView.setIconifiedByDefault(false); 

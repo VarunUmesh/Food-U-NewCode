@@ -5,10 +5,14 @@ import java.util.List;
 
 
 
+
+
 import com.example.foodu.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +51,9 @@ public class CustomListAdapter extends BaseAdapter {
          
         // title
         title.setText(m.getTitle());
-        icon.setImageResource(m.getIcon());
+        Bitmap bitmap = BitmapFactory.decodeByteArray(m.getIcon(), 0, m.getIcon().length);
+        icon.setImageBitmap(bitmap);
+        //icon.setImageResource(m.getIcon());
          
         // description
         description.setText(String.valueOf(m.getDescription()));

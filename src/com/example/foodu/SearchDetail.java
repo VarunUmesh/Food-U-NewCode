@@ -65,7 +65,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		for(model.Review review : dbreviews)
 			if(review.getComment().length() > 0){
 				User reviewer = db.getUser(review.getEmail());
-				reviews.add(new ItemModel(R.drawable.gopher, reviewer.toString(), review.getComment(), "", df.format(review.getDate()), "99", 0));
+				reviews.add(new ItemModel(null, reviewer.toString(), review.getComment(), "", df.format(review.getDate()), "99", 0));
 			}
 		listView = (ListView) findViewById(R.id.reviews);
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,

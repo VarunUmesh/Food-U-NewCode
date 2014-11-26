@@ -5,11 +5,19 @@
     tools:context="com.example.foodu.Review" >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="Your Previous Reviews"
+            style="@style/heading"
+            android:background="@color/gold" />
+
     <ListView
         android:id="@+id/reviews"
+        android:layout_below="@id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="@color/list_divider"

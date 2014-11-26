@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.foodu.R;
+
 import model.Eatery;
+import model.MenuItem;
 import model.Review;
 import model.User;
 import android.content.ContentValues;
@@ -16,7 +19,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 	
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "FOOD";
     
     private static final String TABLE_USERS = "user";
@@ -43,6 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String EATERY_LPRICE = "lprice";
     private static final String EATERY_MPRICE = "mprice";
     private static final String EATERY_HPRICE = "hprice";
+    private static final String EATERY_LOGO = "logo";
     
     private static final String TABLE_REVIEW = "review";
     private static final String REVIEW_EMAIL = "email";
@@ -55,7 +59,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String REVIEW_COMMENT = "comment";
     private static final String REVIEW_DATE = "date";
     
+    private static final String TABLE_MENU_ITEM = "menuitem";
+    private static final String MENU_ITEM_EATERY = "eatery";
+    private static final String MENU_ITEM_NAME = "name";
+    
     //private static final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    
+    Custom helper;
 
 	public DatabaseHandler(Context context, String name, CursorFactory factory,
 			int version) {
@@ -64,6 +74,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		helper = new Custom(context);
 	}
 
 	@Override
@@ -96,7 +107,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				EATERY_PARKING + " INTEGER, " +
 				EATERY_LPRICE + " INTEGER, " +
 				EATERY_MPRICE + " INTEGER, " +
-				EATERY_HPRICE + " INTEGER)";
+				EATERY_HPRICE + " INTEGER, " +
+				EATERY_LOGO + " BLOB)";
 		
 		String CREATE_REVIEW_TABLE = "CREATE TABLE " +  TABLE_REVIEW + "( " +
 				REVIEW_EMAIL + " TEXT NOT NULL, " + 
@@ -110,10 +122,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				REVIEW_DATE + " DATE, " +
 				"PRIMARY KEY(" + REVIEW_EMAIL + ", " +  REVIEW_EATERY + "))";
 		
+		String CREATE_MENU_ITEM_TABLE = "CREATE TABLE " + TABLE_MENU_ITEM + "(" +
+				MENU_ITEM_EATERY + " INT NOT NULL, " +
+				MENU_ITEM_NAME + " TEXT, " +
+				"PRIMARY KEY(" + MENU_ITEM_EATERY + ", " +  MENU_ITEM_NAME + "))";
+		
+		
 		
 		db.execSQL(CREATE_USER_TABLE);
 		db.execSQL(CREATE_EATERY_TABLE);
 		db.execSQL(CREATE_REVIEW_TABLE);
+		db.execSQL(CREATE_MENU_ITEM_TABLE);
 		populate(db);
 			
 	}
@@ -123,6 +142,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EATERY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REVIEW);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MENU_ITEM);
         this.onCreate(db);
 	}
 	
@@ -134,21 +154,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		users.add(new User("sharm274@umn.edu", "Shrimi274", "Shrimi", "Sharma",  0, 0, 0, 8 ));
 		users.add(new User("umesh001@umn.edu", "Varun001", "Varun", "Umesh",  1, 1, 1, 6 ));
 		
+		
+		
 		List<Eatery> eateries = new ArrayList<Eatery>();
-		eateries.add(new Eatery(1, "Topio's", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 1, 1));
-		eateries.add(new Eatery(2, "Baja Sol", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
-		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower Lower Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 0, 0));
-		eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center , Ground Level", " St. Paul", "55108", 0, 1, 0, 1, 0, 1, 0, 0));
-		eateries.add(new Eatery(5, "Panda Express", "Carlson School of Management, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 0, 0));
-		eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library , Lower Level", "East Bank", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(7, "Jamba Juice", "Coffman Union's Minnesota Marketplace ", "First Floor (next to the Commuter's Lounge)", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(8, "Papa John's", "St. Paul Student Center's Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(9, "Burger Studio", "Carlson School of Management, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(10, "Bistro West Restaurant", "Humphrey Center, Lower Level", "West Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(11, "Chick-fil-A", "Coffman Union's Minnesota Marketplace, Ground Level", "East Bank, Minneapolis", "55455", 0, 1, 0, 1, 0, 0, 0, 1));
-		eateries.add(new Eatery(12, "Greens To Go", "St. Paul Student Center's Terrace Cafe , Main Level", "St. Paul", "55108", 0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(13, "Subway", "Essentials Market in Blegen Hall, Lowel Level West Bank","Minneapolis","55455",0, 1, 0, 1, 0, 1, 1, 1));
-		eateries.add(new Eatery(14, "Abduls Afandy", "614 Washington Ave SE, Minneapolis","MN","55455",0, 1, 0, 1, 0, 1, 1, 1));
+		eateries.add(new Eatery(1, "Topio's", "Coffman Union's Minnesota Marketplace", "Ground Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 1, 1, helper.image(R.drawable.gopher) ));
+		eateries.add(new Eatery(2, "Baja Sol", "Coffman Union's Minnesota Marketplace", "Ground Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper.image(R.drawable.bajasol)));
+		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower", "Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.caribou)));
+		eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center",  "Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(5, "Panda Express", "Carlson School of Management", "Lower Level", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.panda)));
+		eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library", "Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.wiseowl)));
+		eateries.add(new Eatery(7, "Jamba Juice", "Coffman Union's Minnesota Marketplace ", "First Floor (next to the Commuter's Lounge)", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.jambajuice)));
+		eateries.add(new Eatery(8, "Papa John's", "St. Paul Student Center's Terrace Cafe", "Main Level", "St. Paul", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.papajohn)));
+		eateries.add(new Eatery(9, "Burger Studio", "Carlson School of Management", "Lower Level", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.burgerstudio)));
+		eateries.add(new Eatery(10, "Bistro West Restaurant", "Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(11, "Chick-fil-A", "Coffman Union's Minnesota Marketplace", "Ground Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(12, "Greens To Go", "St. Paul Student Center's Terrace Cafe", "Main Level", "St. Paul", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(13, "Subway", "Essentials Market in Blegen Hall", "Lowel Level",  "West Bank, Minneapolis",0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.subway)));
+		eateries.add(new Eatery(14, "Abduls Afandy", "614 Washington Ave SE","","West Bank, Minneapolis",0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
 
 		List<Review> reviews = new ArrayList<Review>();
 	//	reviews.add(new Review("poual001@umn.edu", 1, 2, 3, 3, 3, 2, "", new Date()));
@@ -166,6 +188,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		reviews.add(new Review("poual001@umn.edu", 9, 2, 1, 4, 4, 3, "Burgers are pretty good", new Date()));
 		reviews.add(new Review("shahx118@umn.edu", 9, 4, 4, 5, 3, 1, "", new Date()));
 		reviews.add(new Review("poual001@umn.edu", 14, 4, 4, 5, 3, 1, "Best Middle Eastern Food", new Date()));
+		
+		List<MenuItem> menuitems = new ArrayList<MenuItem>(); 
+		menuitems.add(new MenuItem(13, "Wrap"));
+		menuitems.add(new MenuItem(14, "Wrap"));
 
 		
 		ContentValues values;
@@ -198,6 +224,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		    values.put(EATERY_LPRICE, eatery.getLPrice());
 		    values.put(EATERY_MPRICE, eatery.getMPrice());
 		    values.put(EATERY_HPRICE, eatery.getHPrice());
+		    values.put(EATERY_LOGO, eatery.getLogo());
 		    db.insert(TABLE_EATERY, null, values);
 		}
 		
@@ -212,6 +239,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		    values.put(REVIEW_SERVICE, rev.getService());
 		    values.put(REVIEW_COMMENT, rev.getComment());
 		    db.insert(TABLE_REVIEW, null, values);
+		}
+		
+		for(MenuItem item : menuitems){
+			values = new ContentValues();
+			values.put(MENU_ITEM_EATERY, item.getEatery());
+		    values.put(MENU_ITEM_NAME, item.getName());
+		    db.insert(TABLE_MENU_ITEM, null, values);
 		}
 		
 	
@@ -236,6 +270,43 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    db.close(); 
 	}
 	
+	public List<MenuItem> getItems(){
+		List<MenuItem> items = new ArrayList<MenuItem>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		 Cursor cursor = db.query(TABLE_MENU_ITEM, null,
+	                null, null, null, null, null);
+		 if (cursor.moveToFirst()) {
+	           do {
+	        	   items.add(new MenuItem(cursor.getInt(0), cursor.getString(1)));
+	           } while (cursor.moveToNext());
+	       }
+	    return items;
+	}
+	
+	public List<Eatery> getEateryByItem(String search){
+		List<Eatery> eateries = new ArrayList<Eatery>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String query = "SELECT " + TABLE_EATERY + ".* " + 
+							"FROM " + TABLE_EATERY + " " +
+							"JOIN " + TABLE_MENU_ITEM + " " +
+						    "ON " + TABLE_EATERY + "." + EATERY_ID + " = " + TABLE_MENU_ITEM + "." + MENU_ITEM_EATERY + " " +
+						    "WHERE lower(" + TABLE_MENU_ITEM + "." + MENU_ITEM_NAME + ") =?";
+		Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(search).toLowerCase()});
+		if (cursor.moveToFirst()) {
+	           do {
+	        	   eateries.add(
+	        			   new Eatery(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+	        					   cursor.getString(3), cursor.getString(4), Integer.parseInt(cursor.getString(5))
+	        					   , Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7))
+	        					   , Integer.parseInt(cursor.getString(8)), Integer.parseInt(cursor.getString(9))
+	        					   , Integer.parseInt(cursor.getString(10)), Integer.parseInt(cursor.getString(11))
+	        					   , Integer.parseInt(cursor.getString(12))
+	        					   , cursor.getBlob(13)));
+	           } while (cursor.moveToNext());
+	       }
+		return eateries;
+	}
+	
 	public List<Eatery> getEateries() {
 	    List<Eatery> eateries = new ArrayList<Eatery>();
 	    SQLiteDatabase db = this.getWritableDatabase();
@@ -252,7 +323,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	        					   , Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7))
 	        					   , Integer.parseInt(cursor.getString(8)), Integer.parseInt(cursor.getString(9))
 	        					   , Integer.parseInt(cursor.getString(10)), Integer.parseInt(cursor.getString(11))
-	        					   , Integer.parseInt(cursor.getString(12))));
+	        					   , Integer.parseInt(cursor.getString(12))
+	        					   , cursor.getBlob(13)));
 	           } while (cursor.moveToNext());
 	       }
 	    return eateries;
@@ -293,6 +365,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	       }
 	    return reviews;
 	  }
+	
+	public Review getUserEateryReview(String user, int review) {
+		Review usereateryreview = new Review();
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.query(TABLE_REVIEW, null, REVIEW_EMAIL + "=? AND "
+				+ REVIEW_EATERY + "=?", new String[] { user, review + "" },
+				null, null, null);
+
+		if (cursor.moveToFirst()) {
+
+			usereateryreview = new Review(cursor.getString(0),
+					cursor.getInt(1), cursor.getInt(2), cursor.getInt(3),
+					cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
+					cursor.getString(7), new Date());
+		}
+		return usereateryreview;
+	}
 	
 	public List<Review> getReviews() {
 	    List<Review> reviews = new ArrayList<Review>();
@@ -353,7 +442,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				   , Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7))
 				   , Integer.parseInt(cursor.getString(8)), Integer.parseInt(cursor.getString(9))
 				   , Integer.parseInt(cursor.getString(10)), Integer.parseInt(cursor.getString(11))
-				   , Integer.parseInt(cursor.getString(12)));
+				   , Integer.parseInt(cursor.getString(12))
+				   , cursor.getBlob(13));
 	    return eatery;
 	}
 	

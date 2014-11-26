@@ -28,6 +28,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class Review extends ActionBarActivity implements OnItemClickListener {
 	
@@ -48,7 +49,7 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 			if(r.getComment().length() > 0){
 				User user = db.getUser(r.getEmail());
 				Eatery eat = db.getEatery(r.getEatery());
-				movieList.add(new ItemModel(R.drawable.gopher, eat.getName(), r.getComment(), user.toString(), df.format(r.getDate()), "", 0));
+				movieList.add(new ItemModel(eat.getLogo(), eat.getName(), r.getComment(), user.toString(), df.format(r.getDate()), r.getEmail(), r.getEatery()));
 			}
 		
 		
@@ -87,8 +88,8 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		            {
 		                
 		                System.out.println("on query submit: "+query);
-		                Intent searchIntent = new Intent(Review.this, Search.class);
-		                searchIntent.putExtra("SEARCH_MESSAGE", query);
+		                Intent searchIntent = new Intent(Review.this, UserReview.class);
+		                searchIntent.putExtra("EATERY", 1);
 		                startActivity(searchIntent);
 
 		                return true;
@@ -124,7 +125,10 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		ItemModel item = (ItemModel) adapter.getItem(arg2);
 		Intent intent = new Intent(this, UserReview.class);
+		intent.putExtra("EATERY", item.getKey());
+		intent.putExtra("USER", item.getId());
 	    startActivity(intent);
 	}
 }

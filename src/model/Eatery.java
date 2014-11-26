@@ -15,10 +15,11 @@ public class Eatery {
 	private int lprice;
 	private int mprice;
 	private int hprice;
+	private byte[] logo;
 	
 	public Eatery(){}
 	
-	public Eatery(int i, String n, String a1, String a2, String a3, int veget, int veg, int kos, int wi, int p, int lp, int mp, int hp) {
+	public Eatery(int i, String n, String a1, String a2, String a3, int veget, int veg, int kos, int wi, int p, int lp, int mp, int hp, byte[] l) {
 		super();
 		this.id = i;
 		this.name = n;
@@ -32,7 +33,8 @@ public class Eatery {
 		this.parking = p;
 		this.lprice = lp;
 		this.mprice = mp;
-		this.hprice = hp;		
+		this.hprice = hp;	
+		this.logo = l;
 	}
 	
 	public int getId(){
@@ -84,5 +86,9 @@ public class Eatery {
 	
 	public int getHPrice(){
 		return hprice;
+	}
+	
+	public byte[] getLogo(){
+		return logo;
 	}
 }

@@ -138,6 +138,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.foodu.Recommendation" />
         </activity>
+        <activity
+            android:name=".FoodSearch"
+            android:label="@string/title_activity_food_search"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.foodu.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
