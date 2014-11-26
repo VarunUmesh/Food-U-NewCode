@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.Eatery;
 import helper.DatabaseHandler;
+import model.Eatery;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 	Button like, dislike;
 	ImageView logo;
 	TextView title, address;
-	int count = 0;
+	int count = 0,randomChoice;
+	TextView titleForRandom,addressForRandom,foodDescForRandom;
+	ImageView logoForRandom,foodImageForRandom;
+	
+	
 	int eateryCount = 0;
 	List<Integer> recomendations = new ArrayList<Integer>();
 	List<String> phrases = new ArrayList<String>();
@@ -45,8 +50,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.cuisine_recommendation, menu);
+		Intent grabChoice = getIntent();
+		String logData=getIntent().getDataString();
+		randomChoice = grabChoice.getIntExtra("randomChoiceVariable", 0);
 		
+		getMenuInflater().inflate(R.menu.cuisine_recommendation, menu);
 		like = (Button) findViewById(R.id.like);
 		dislike = (Button) findViewById(R.id.dislike);
 		like.setOnClickListener(this);

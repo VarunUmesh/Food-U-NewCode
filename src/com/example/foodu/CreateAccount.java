@@ -12,8 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -23,6 +25,7 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 	EditText fname, lname, email, password, cpassword, budget;
 	ToggleButton vegan, vegeterian, gluten;
 	Button createBtn;
+	User u;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 		email = (EditText) findViewById(R.id.email);
 		password = (EditText) findViewById(R.id.pwd);
 		cpassword = (EditText) findViewById(R.id.cpwd);
+		budget = (EditText)findViewById(R.id.budget);
 		createBtn = (Button) findViewById(R.id.create);
 		
 		vegeterian = (ToggleButton) findViewById(R.id.vegeterian);
@@ -56,7 +60,35 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 		gluten = (ToggleButton) findViewById(R.id.gluten);
 		vegeterian = (ToggleButton) findViewById(R.id.vegeterian);
 		
+		fname.setText("Joel");
+		lname.setText("Poualeu");
+		email.setText("poual001@umn.edu");
+		password.setText("Joel001");
+		cpassword.setText("Joel001");
+		budget.setText("8");
+		vegeterian.setChecked(true);
 		createBtn.setOnClickListener(this);
+		
+		Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+		ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
+		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
+		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner1.setAdapter(adapter1);
+		spinner1.setSelection(adapter1.getPosition("Indian"));
+		
+		Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+		ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
+		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner2.setAdapter(adapter2);
+		spinner2.setSelection(adapter2.getPosition("Chinese"));
+		
+		Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+		ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
+		adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner3.setAdapter(adapter3);
+		spinner3.setSelection(adapter3.getPosition("American"));
 		
 		return true;
 	}

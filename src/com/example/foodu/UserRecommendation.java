@@ -67,7 +67,7 @@ public class UserRecommendation extends Activity implements OnClickListener {
 			if(count < 2){
 				count++;
 				Eatery e = db.getEatery(count+1);
-				title.setText("How about " + e.getName());
+				title.setText("How about " + e.getName() + "?");
 				address.setText(e.getAddress1() + "\n" + e.getAddress2() + "\n" + e.getAddress3());
 			}
 			else{

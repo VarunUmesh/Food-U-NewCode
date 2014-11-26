@@ -144,7 +144,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 		switch(v.getId())
 		{
 			case R.id.profile:
-				intent = new Intent(this, Login.class);
+				intent = new Intent(this, CreateAccount.class);
 			    startActivity(intent);
 			    break;
 			case R.id.recommendation:
