@@ -4,7 +4,7 @@
     <string name="app_name">Food@U</string>
     <string name="profile">Profile</string>
     <string name="ok">OK</string>
-    <string name="profileTask">Build\nProfile</string>
+    <string name="profileTask">Edit\nProfile</string>
     <string name="notTask">Free\nFood</string>
     <string name="reviewTask">Write\nReview</string>
     <string name="recTask">Where do\nI eat?</string>
@@ -13,13 +13,13 @@
     <string name="action_settings">Log Out</string>
     <string name="action_register">Register Device</string>
     <string name="logo">Logo</string>
-    <string name="title_activity_create_account">Update Account</string>
+    <string name="title_activity_create_account">Edit Profile</string>
     <string name="hello_world">Hello world!</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_search">Search</string>
-    <string name="title_activity_recommendation">Recommendation</string>
+    <string name="title_activity_recommendation">Where do I eat next? </string>
     <string name="e_mail">Email</string>
     <string name="pass_word">Password</string>
     <string name="confirm_password">Confirm Password</string>
@@ -31,7 +31,7 @@
     <string name="food_veg">Vegetarian</string>
     <string name="toggle_button">Toggle</string>
     <string name="avg_budget">Budget per meal $:</string>
-    <string name="create_account">Update Account</string>
+    <string name="create_account">Edit Profile</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="price_range">Price</string>
     <string name="dollar">$</string>
