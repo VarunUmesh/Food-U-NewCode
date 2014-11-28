@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 public class CuisineRecommendation extends Activity implements OnClickListener {
 
+	private final int MAXRECOMMENDATION = 2;
 	DatabaseHandler db = new DatabaseHandler(this);
 	Button like, dislike;
 	ImageView logo, food;
@@ -36,7 +37,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 
 	int eateryCount = 0;
 	List<Integer> recomendations = new ArrayList<Integer>();
+	
 	List<String> phrases = new ArrayList<String>();
+	ArrayList<Integer> selection;
 	ArrayList<CharSequence> selectionStrings = new ArrayList<CharSequence>();
 	Eatery e;
 	model.MenuItem m = null;
@@ -48,8 +51,10 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 
 		Intent grabChoice = getIntent();
 		// randomChoice = grabChoice.getIntExtra("randomChoiceVariable", 0);
-		ArrayList<Integer> selection = grabChoice
+		selection = grabChoice
 				.getIntegerArrayListExtra("selection");
+		if(selection.size() < MAXRECOMMENDATION)
+			count = MAXRECOMMENDATION;
 		CharSequence[] items = getResources().getStringArray(
 				R.array.Cuisines_choices);
 		selectionStrings = new ArrayList<CharSequence>();
@@ -119,6 +124,12 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		this.recomendations.add(r);
 		return r;
 	}
+	
+	public int getCRecommendation() {
+		Random rand = new Random();
+		int r = this.selection.get(rand.nextInt(this.selection.size()));
+		return r;
+	}
 
 	public static int randInt(int min, int max) {
 		Random rand = new Random();
@@ -147,12 +158,16 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.dislike:
-			if (count < 2) {
-				count++;
+			if (count < MAXRECOMMENDATION) {
+				count++;	
 				if(randomChoice > -1){
+					selection.remove(this.selection.indexOf(randomChoice));
+					randomChoice = generateRandomChoice(selection);
 					int choice = buidAndroidComponentsFromRandom(randomChoice);
 					e = db.getEatery(choice);
 					m = db.getItem(choice);
+					if(selection.size() == 1)
+						count = MAXRECOMMENDATION;
 				}
 				else{
 					int recom = getRecommendation();
