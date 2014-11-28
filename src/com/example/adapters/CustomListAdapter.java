@@ -3,10 +3,6 @@ package com.example.adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 import com.example.foodu.R;
 
 import android.app.Activity;

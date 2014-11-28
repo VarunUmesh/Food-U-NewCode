@@ -89,12 +89,19 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 	public void onClick(View arg0) {
 		switch(arg0.getId()){
 		case R.id.cuisine:
-			final CharSequence[] items = {"American","Cafe","Chinese","Italian","Juices","Mexican","Vietnamese"};
-		    final boolean[] states = new boolean[items.length];
+			final CharSequence[] items = getResources().getStringArray(R.array.Cuisines_choices);// {"American","Cafe","Chinese","Italian","Juices","Mexican","Vietnamese"};
+			final ArrayList<Integer> seletedItems=new ArrayList<Integer>();
+			final boolean[] states = new boolean[items.length];
 		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		    builder.setTitle("Which cuisine do you want?");
 		    builder.setMultiChoiceItems(items, states, new DialogInterface.OnMultiChoiceClickListener(){
 		        public void onClick(DialogInterface dialogInterface, int item, boolean state) {
+		        	 if (state) {
+	                     seletedItems.add(item);
+	                 } else if (seletedItems.contains(item)) {
+	                     seletedItems.remove(Integer.valueOf(item));
+	                 }
+
 		        }
 		    });
 		    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -111,10 +118,11 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		            
 		            /* Get a random choice out of the selected items, this number is passed to the CuisineRecommendation class*/
 		            
-		            int randomChoice = generateRandomChoice(selctedList);
-		            //Toast.makeText(getBaseContext(), "Selected Cuisines\n"+ result, Toast.LENGTH_LONG).show();
+		            //int randomChoice = generateRandomChoice(selctedList);
+		            //Toast.makeText(getBaseContext(), "Selected Cuisines\n"+ seletedItems, Toast.LENGTH_LONG).show();
 		            Intent userrecommendation = new Intent(Recommendation.this, CuisineRecommendation.class);
-		            userrecommendation.putExtra("randomChoiceVariable",randomChoice);
+		            //userrecommendation.putExtra("randomChoiceVariable",randomChoice);
+		            userrecommendation.putExtra("selection",seletedItems);
 				    startActivity(userrecommendation);
 		        }
 		    });
@@ -134,7 +142,7 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		
 	}
 	
-	private int generateRandomChoice(ArrayList<Integer> myList){
+	/*private int generateRandomChoice(ArrayList<Integer> myList){
 		if(myList!=null){
 			Log.d("ArrayListThings", "The contents of the arraylist are-->" +myList);
 			Collections.shuffle(myList, new Random());
@@ -144,6 +152,6 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 			return 100;
 		}
 		
-	}
+	}*/
 
 }

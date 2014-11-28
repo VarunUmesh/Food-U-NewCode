@@ -21,7 +21,8 @@ public final class R {
         public static final int trans_right_out=0x7f040009;
     }
     public static final class array {
-        public static final int Cuisines_array=0x7f0d0001;
+        public static final int Cuisines_array=0x7f0d0002;
+        public static final int Cuisines_choices=0x7f0d0001;
         public static final int androidcolors=0x7f0d0000;
     }
     public static final class attr {
@@ -1178,12 +1179,13 @@ containing a value of this type.
         public static final int review=0x7f020097;
         public static final int sandwish=0x7f020098;
         public static final int subway=0x7f020099;
-        public static final int topiofood=0x7f02009a;
-        public static final int topiologo=0x7f02009b;
-        public static final int unlike=0x7f02009c;
-        public static final int user=0x7f02009d;
-        public static final int wiseowl=0x7f02009e;
-        public static final int wrap=0x7f02009f;
+        public static final int subwayfood=0x7f02009a;
+        public static final int topiofood=0x7f02009b;
+        public static final int topiologo=0x7f02009c;
+        public static final int unlike=0x7f02009d;
+        public static final int user=0x7f02009e;
+        public static final int wiseowl=0x7f02009f;
+        public static final int wrap=0x7f0200a0;
     }
     public static final class id {
         public static final int Button=0x7f0600a4;

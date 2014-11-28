@@ -68,20 +68,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_gravity="center_vertical"
                 android:background="@color/maroon" />
 
-            <TextView
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_pinpoint" />
+
+           <!--   <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingRight="10dp"
                 android:text="Fancy this"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="18sp" />-->
         </FrameLayout>
 
         <LinearLayout
