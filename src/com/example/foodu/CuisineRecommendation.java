@@ -293,13 +293,13 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 			{
 				logo.setBackgroundResource(R.drawable.like_border);	
 				likeStatus.setVisibility(View.VISIBLE);
-				//sLike.setText("You Like");
+				like.setText("Unlike");
 				like.setBackgroundResource(R.drawable.button_chkbox);
 			}
 			else{
 				logo.setBackgroundResource(0);
 				likeStatus.setVisibility(View.GONE);
-				//sLike.setText("");
+				like.setText("Like");
 				like.setBackgroundResource(R.drawable.button_green_chkbox);
 			}
 		}

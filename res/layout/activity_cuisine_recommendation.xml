@@ -90,16 +90,15 @@
                     android:checked="false"
                      android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".2"
+                android:layout_weight=".25"
                 android:layout_marginRight="5dip"
                     android:layout_centerVertical="true"
                     
                     android:background="@drawable/button_green_chkbox"
                     style="@style/button_like"
                     android:layout_gravity="center_horizontal"
-                    android:text="Like"
-                   
-                    android:paddingLeft="-20dip"
+                    android:text="Like" 
+
                     android:button="@drawable/like_button_state" />
 
 
@@ -121,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_weight=".8"
+                android:layout_weight=".75"
                 android:textSize="16sp" />
         </LinearLayout>
 
