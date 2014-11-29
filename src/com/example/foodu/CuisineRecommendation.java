@@ -28,6 +28,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,8 +41,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 	ImageView logo, food;
 	TextView title, address, foodDesc;
 	int count = 0, randomChoice=-1;
-	TextView titleForRandom, addressForRandom, foodDescForRandom, sLike;
+	TextView titleForRandom, addressForRandom, foodDescForRandom;
 	ImageView logoForRandom, foodImageForRandom;
+	LinearLayout likeStatus;
 
 	int eateryCount = 0;
 	List<Integer> recomendations = new ArrayList<Integer>();
@@ -83,7 +85,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		// Inflate the menu; this adds items to the action bar if it is present.
 
 		getMenuInflater().inflate(R.menu.cuisine_recommendation, menu);
-		sLike = (TextView) findViewById(R.id.slike);
+		//sLike = (TextView) findViewById(R.id.slike);
 		like = (CheckBox) findViewById(R.id.like);
 		dislike = (Button) findViewById(R.id.dislike);
 		//like.setOnClickListener(this);
@@ -95,6 +97,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		logo = (ImageView) findViewById(R.id.logo);
 		food = (ImageView) findViewById(R.id.numberDays);
 		foodDesc = (TextView) findViewById(R.id.foodDesc);
+		likeStatus  = (LinearLayout) findViewById(R.id.myImageViewText);
 
 		eateryCount = db.getEateries().size();
 		
@@ -229,7 +232,6 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 			}
 			logo.setBackgroundResource(0);
 			like.setChecked(false);
-			sLike.setText("");
 			break;
 		}
 	}
@@ -290,11 +292,15 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 			if(arg1)
 			{
 				logo.setBackgroundResource(R.drawable.like_border);	
-				sLike.setText("You Like");
+				likeStatus.setVisibility(View.VISIBLE);
+				//sLike.setText("You Like");
+				like.setBackgroundResource(R.drawable.button_chkbox);
 			}
 			else{
 				logo.setBackgroundResource(0);
-				sLike.setText("");
+				likeStatus.setVisibility(View.GONE);
+				//sLike.setText("");
+				like.setBackgroundResource(R.drawable.button_green_chkbox);
 			}
 		}
 	}

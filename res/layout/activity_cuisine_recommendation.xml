@@ -26,15 +26,53 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FF006900" />
 
-        <ImageView
+        <RelativeLayout 
+   
+    android:id="@+id/relativelayout"
+    android:layout_weight="4"
+    android:layout_marginTop="7dp"
+            
+    android:layout_width="match_parent"
+            android:layout_height="0dp" >
+
+    <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="7dp"
-            android:layout_weight="4"
+            
             android:contentDescription="lll"
             android:src="@drawable/subway" />
+
+    <LinearLayout 
+        android:id="@+id/myImageViewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:background="#B399CC00"
+        android:visibility="invisible"
+        android:layout_margin="1dp"
+        android:gravity="left|top"
+        >
+        
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="lll"
+            android:src="@drawable/ic_action_accept" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="5dip"
+        style="@style/like_text"
+        android:text="You liked this"
+        android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</RelativeLayout>
+        
 
         <LinearLayout
             android:id="@+id/foreground"
@@ -46,31 +84,24 @@
             android:orientation="horizontal"
             android:weightSum="1" >
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".2"
-                android:layout_marginRight="5dip"
-                android:orientation="vertical" >
 
                 <CheckBox
                     android:id="@+id/like"
                     android:checked="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                     android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:layout_marginRight="5dip"
                     android:layout_centerVertical="true"
-                    style="@style/button_text_green"
+                    
+                    android:background="@drawable/button_green_chkbox"
+                    style="@style/button_like"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight=".2"
+                    android:text="Like"
+                   
+                    android:paddingLeft="-20dip"
                     android:button="@drawable/like_button_state" />
-                <TextView android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" 
-                    android:gravity="center"
-                    android:layout_gravity="center_horizontal"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/slike"
-                    />
-            </LinearLayout>
+
 
             <!--
                  <ImageButton
