@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-   <LinearLayout
+    <LinearLayout
         android:id="@+id/controls"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -46,14 +46,44 @@
             android:orientation="horizontal"
             android:weightSum="1" >
 
-            <ImageView
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:layout_marginRight="5dip"
+                android:orientation="vertical" >
+
+                <CheckBox
+                    android:id="@+id/like"
+                    android:checked="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    style="@style/button_text_green"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight=".2"
+                    android:button="@drawable/like_button_state" />
+                <TextView android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/slike"
+                    />
+            </LinearLayout>
+
+            <!--
+                 <ImageButton
+                android:id="@+id/like"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginRight="5dip"
                 android:layout_weight=".2"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_pinpoint" />
+                style="@style/button_text_green"
+                android:src="@drawable/ic_like" />
+            -->
 
             <TextView
                 android:id="@+id/button_text"
@@ -74,9 +104,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingRight="10dp"
-                android:text="Fancy this"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:text="Fancy this?"
+                android:textColor="#FF006900"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -126,13 +158,13 @@
             android:gravity="center" >
 
             <Button
-                android:id="@+id/like"
+                android:id="@+id/directions"
                 style="@style/button_text_green"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_like"
-                android:text="Like" />
+                android:drawableLeft="@drawable/white_wic_pinpoint"
+                android:text="Directions" />
 
             <Button
                 android:id="@+id/dislike"
@@ -140,8 +172,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_dislike"
-                android:text="Dislike" />
+                android:drawableLeft="@drawable/ic_action_refresh"
+                android:text="Another" />
         </LinearLayout>
     </RelativeLayout>
 

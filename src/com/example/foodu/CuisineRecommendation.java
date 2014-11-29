@@ -23,19 +23,24 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CuisineRecommendation extends Activity implements OnClickListener {
+public class CuisineRecommendation extends Activity implements OnClickListener, OnCheckedChangeListener {
 
 	private final int MAXRECOMMENDATION = 2;
 	DatabaseHandler db = new DatabaseHandler(this);
-	Button like, dislike;
+	CheckBox like;
+	Button dislike;
 	ImageView logo, food;
 	TextView title, address, foodDesc;
 	int count = 0, randomChoice=-1;
-	TextView titleForRandom, addressForRandom, foodDescForRandom;
+	TextView titleForRandom, addressForRandom, foodDescForRandom, sLike;
 	ImageView logoForRandom, foodImageForRandom;
 
 	int eateryCount = 0;
@@ -78,9 +83,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 
 		getMenuInflater().inflate(R.menu.cuisine_recommendation, menu);
-		like = (Button) findViewById(R.id.like);
+		sLike = (TextView) findViewById(R.id.slike);
+		like = (CheckBox) findViewById(R.id.like);
 		dislike = (Button) findViewById(R.id.dislike);
-		like.setOnClickListener(this);
+		//like.setOnClickListener(this);
+		like.setOnCheckedChangeListener(this);
 		dislike.setOnClickListener(this);
 
 		title = (TextView) findViewById(R.id.title);
@@ -157,7 +164,8 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		int u = arg0.getId();
 		switch (u) {
 		case R.id.like:
-			LayoutInflater inflater = getLayoutInflater();
+			
+			/*LayoutInflater inflater = getLayoutInflater();
 			View layout = inflater.inflate(R.layout.toast,
 			                               (ViewGroup) findViewById(R.id.toast_layout_root));
 
@@ -170,7 +178,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 			toast.setDuration(Toast.LENGTH_LONG);
 			toast.setView(layout);
-			toast.show();
+			toast.show();*/
 			//Intent i = new Intent(this, MainActivity.class);
 			//startActivity(i);
 			break;
@@ -219,7 +227,9 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 								}).setIcon(android.R.drawable.ic_dialog_alert)
 						.show();
 			}
-
+			logo.setBackgroundResource(0);
+			like.setChecked(false);
+			sLike.setText("");
 			break;
 		}
 	}
@@ -271,5 +281,21 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			return getRecommendation();
 		}
 
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+		switch(arg0.getId()){
+		case R.id.like:
+			if(arg1)
+			{
+				logo.setBackgroundResource(R.drawable.like_border);	
+				sLike.setText("You Like");
+			}
+			else{
+				logo.setBackgroundResource(0);
+				sLike.setText("");
+			}
+		}
 	}
 }
