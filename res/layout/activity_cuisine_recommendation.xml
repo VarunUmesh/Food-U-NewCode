@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <LinearLayout
+   <LinearLayout
         android:id="@+id/controls"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -64,31 +64,25 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/maroon" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_pinpoint" />
-
-           <!--   <TextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingRight="10dp"
                 android:text="Fancy this"
                 android:textColor="@color/black"
-                android:textSize="18sp" />-->
-        </FrameLayout>
+                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/maroon" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"

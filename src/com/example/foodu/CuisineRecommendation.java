@@ -15,10 +15,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -154,8 +157,22 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		int u = arg0.getId();
 		switch (u) {
 		case R.id.like:
-			Intent i = new Intent(this, MainActivity.class);
-			startActivity(i);
+			LayoutInflater inflater = getLayoutInflater();
+			View layout = inflater.inflate(R.layout.toast,
+			                               (ViewGroup) findViewById(R.id.toast_layout_root));
+
+			ImageView image = (ImageView) layout.findViewById(R.id.image);
+			image.setImageResource(R.drawable.ic_pinpoint);
+			TextView text = (TextView) layout.findViewById(R.id.text);
+			text.setText("Hello! This is a custom toast!");
+
+			Toast toast = new Toast(getApplicationContext());
+			toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+			toast.setDuration(Toast.LENGTH_LONG);
+			toast.setView(layout);
+			toast.show();
+			//Intent i = new Intent(this, MainActivity.class);
+			//startActivity(i);
 			break;
 		case R.id.dislike:
 			if (count < MAXRECOMMENDATION) {

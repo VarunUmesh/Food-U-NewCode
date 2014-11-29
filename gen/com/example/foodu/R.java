@@ -1182,10 +1182,11 @@ containing a value of this type.
         public static final int subwayfood=0x7f02009a;
         public static final int topiofood=0x7f02009b;
         public static final int topiologo=0x7f02009c;
-        public static final int unlike=0x7f02009d;
-        public static final int user=0x7f02009e;
-        public static final int wiseowl=0x7f02009f;
-        public static final int wrap=0x7f0200a0;
+        public static final int triangle=0x7f02009d;
+        public static final int unlike=0x7f02009e;
+        public static final int user=0x7f02009f;
+        public static final int wiseowl=0x7f0200a0;
+        public static final int wrap=0x7f0200a1;
     }
     public static final class id {
         public static final int Button=0x7f0600a4;
@@ -1202,13 +1203,13 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f060023;
         public static final int action_bar_title=0x7f060022;
         public static final int action_context_bar=0x7f06001d;
-        public static final int action_filter=0x7f0600c2;
+        public static final int action_filter=0x7f0600c4;
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_register=0x7f0600c1;
-        public static final int action_search=0x7f0600bc;
-        public static final int action_settings=0x7f0600bb;
+        public static final int action_register=0x7f0600c3;
+        public static final int action_search=0x7f0600be;
+        public static final int action_settings=0x7f0600bd;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int ambience_stars=0x7f06006e;
@@ -1296,10 +1297,10 @@ containing a value of this type.
         public static final int logobtn=0x7f0600ac;
         public static final int lvExp=0x7f06004d;
         public static final int menu=0x7f0600b4;
-        public static final int menu_calender=0x7f0600bd;
-        public static final int menu_copy=0x7f0600c0;
-        public static final int menu_delete=0x7f0600be;
-        public static final int menu_share=0x7f0600bf;
+        public static final int menu_calender=0x7f0600bf;
+        public static final int menu_copy=0x7f0600c2;
+        public static final int menu_delete=0x7f0600c0;
+        public static final int menu_share=0x7f0600c1;
         public static final int middle=0x7f060012;
         public static final int never=0x7f060009;
         public static final int none=0x7f060010;
@@ -1362,6 +1363,7 @@ containing a value of this type.
         public static final int tableRow3=0x7f060057;
         public static final int tableRow4=0x7f060059;
         public static final int tasks=0x7f0600a6;
+        public static final int text=0x7f0600bc;
         public static final int textView1=0x7f060040;
         public static final int textView2=0x7f060079;
         public static final int textView3=0x7f06007e;
@@ -1373,6 +1375,7 @@ containing a value of this type.
         public static final int textView9=0x7f060090;
         public static final int thumbnail=0x7f0600b7;
         public static final int title=0x7f06002b;
+        public static final int toast_layout_root=0x7f0600bb;
         public static final int top_action_bar=0x7f060020;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
@@ -1458,6 +1461,7 @@ containing a value of this type.
         public static final int list_row=0x7f03002d;
         public static final int listrowlayout=0x7f03002e;
         public static final int support_simple_spinner_dropdown_item=0x7f03002f;
+        public static final int toast=0x7f030030;
     }
     public static final class menu {
         public static final int create_account=0x7f0e0000;
