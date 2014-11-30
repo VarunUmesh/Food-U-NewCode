@@ -93,18 +93,7 @@
                 android:checked="false"
                 android:text="Like" />
 
-            <!--
-                 <ImageButton
-                android:id="@+id/like"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="5dip"
-                android:layout_weight=".2"
-                style="@style/button_text_green"
-                android:src="@drawable/ic_like" />
-            -->
+     
 
             <TextView
                 android:id="@+id/button_text"
