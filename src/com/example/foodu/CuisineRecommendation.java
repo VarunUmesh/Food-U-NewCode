@@ -123,7 +123,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 			bitmap = BitmapFactory.decodeByteArray(m.getImage(), 0,
 					m.getImage().length);
 			food.setImageBitmap(bitmap);
-			foodDesc.setText(m.getPrice() + "\n" + m.getName());
+			foodDesc.setText("$ " + m.getPrice() + "\n" + m.getName());
 		}
 
 		return true;
@@ -212,7 +212,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 					bitmap = BitmapFactory.decodeByteArray(m.getImage(), 0,
 							m.getImage().length);
 					food.setImageBitmap(bitmap);
-					foodDesc.setText(m.getPrice() + "\n" + m.getName());
+					foodDesc.setText("$ " + m.getPrice() + "\n" + m.getName());
 				}
 			} else {
 				new AlertDialog.Builder(this)
