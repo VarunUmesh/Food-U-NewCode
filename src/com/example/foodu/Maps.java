@@ -44,7 +44,7 @@ public class Maps extends Activity {
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.activity_maps);
 	if (!Utils.isConnected(getApplicationContext())) {
-	    Toast.makeText(getApplicationContext(), "Internet not available. Cross check your internet connectivity and try again", Toast.LENGTH_LONG).show();
+	    Toast.makeText(getApplicationContext(), "Internet not available. Please check your internet connectivity and try again", Toast.LENGTH_LONG).show();
 	    return;
 	}
 	if (!Utils.isGPSTurnOn(getApplicationContext())) {
