@@ -4,7 +4,7 @@
     <string name="app_name">Food@U</string>
     <string name="profile">Profile</string>
     <string name="ok">OK</string>
-    <string name="profileTask">Edit\nProfile</string>
+    <string name="profileTask">Edit\nJoel\'s Profile</string>
     <string name="notTask">Free\nFood</string>
     <string name="reviewTask">Write\nReview</string>
     <string name="recTask">Where do\nI eat?</string>
@@ -19,7 +19,7 @@
     <string name="save">Save</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_search">Search</string>
-    <string name="title_activity_recommendation">Where do I eat next? </string>
+    <string name="title_activity_recommendation">Where do I eat? </string>
     <string name="e_mail">Email</string>
     <string name="pass_word">Password</string>
     <string name="confirm_password">Confirm Password</string>

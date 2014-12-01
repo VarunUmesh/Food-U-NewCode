@@ -15,25 +15,35 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CuisineRecommendation extends Activity implements OnClickListener {
+public class CuisineRecommendation extends Activity implements OnClickListener, OnCheckedChangeListener {
 
 	private final int MAXRECOMMENDATION = 2;
 	DatabaseHandler db = new DatabaseHandler(this);
-	Button like, dislike;
+	CheckBox like;
+	Button dislike;
 	ImageView logo, food;
 	TextView title, address, foodDesc;
 	int count = 0, randomChoice=-1;
 	TextView titleForRandom, addressForRandom, foodDescForRandom;
 	ImageView logoForRandom, foodImageForRandom;
+	LinearLayout likeStatus;
 
 	int eateryCount = 0;
 	List<Integer> recomendations = new ArrayList<Integer>();
@@ -75,9 +85,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 
 		getMenuInflater().inflate(R.menu.cuisine_recommendation, menu);
-		like = (Button) findViewById(R.id.like);
+		//sLike = (TextView) findViewById(R.id.slike);
+		like = (CheckBox) findViewById(R.id.like);
 		dislike = (Button) findViewById(R.id.dislike);
-		like.setOnClickListener(this);
+		//like.setOnClickListener(this);
+		like.setOnCheckedChangeListener(this);
 		dislike.setOnClickListener(this);
 
 		title = (TextView) findViewById(R.id.title);
@@ -85,6 +97,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		logo = (ImageView) findViewById(R.id.logo);
 		food = (ImageView) findViewById(R.id.numberDays);
 		foodDesc = (TextView) findViewById(R.id.foodDesc);
+		likeStatus  = (LinearLayout) findViewById(R.id.myImageViewText);
 
 		eateryCount = db.getEateries().size();
 		
@@ -110,7 +123,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			bitmap = BitmapFactory.decodeByteArray(m.getImage(), 0,
 					m.getImage().length);
 			food.setImageBitmap(bitmap);
-			foodDesc.setText(m.getPrice() + "\n" + m.getName());
+			foodDesc.setText("$ " + m.getPrice() + "\n" + m.getName());
 		}
 
 		return true;
@@ -154,8 +167,23 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 		int u = arg0.getId();
 		switch (u) {
 		case R.id.like:
-			Intent i = new Intent(this, MainActivity.class);
-			startActivity(i);
+			
+			/*LayoutInflater inflater = getLayoutInflater();
+			View layout = inflater.inflate(R.layout.toast,
+			                               (ViewGroup) findViewById(R.id.toast_layout_root));
+
+			ImageView image = (ImageView) layout.findViewById(R.id.image);
+			image.setImageResource(R.drawable.ic_pinpoint);
+			TextView text = (TextView) layout.findViewById(R.id.text);
+			text.setText("Hello! This is a custom toast!");
+
+			Toast toast = new Toast(getApplicationContext());
+			toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+			toast.setDuration(Toast.LENGTH_LONG);
+			toast.setView(layout);
+			toast.show();*/
+			//Intent i = new Intent(this, MainActivity.class);
+			//startActivity(i);
 			break;
 		case R.id.dislike:
 			if (count < MAXRECOMMENDATION) {
@@ -184,7 +212,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 					bitmap = BitmapFactory.decodeByteArray(m.getImage(), 0,
 							m.getImage().length);
 					food.setImageBitmap(bitmap);
-					foodDesc.setText(m.getPrice() + "\n" + m.getName());
+					foodDesc.setText("$ " + m.getPrice() + "\n" + m.getName());
 				}
 			} else {
 				new AlertDialog.Builder(this)
@@ -202,7 +230,8 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 								}).setIcon(android.R.drawable.ic_dialog_alert)
 						.show();
 			}
-
+			logo.setBackgroundResource(0);
+			like.setChecked(false);
 			break;
 		}
 	}
@@ -254,5 +283,25 @@ public class CuisineRecommendation extends Activity implements OnClickListener {
 			return getRecommendation();
 		}
 
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+		switch(arg0.getId()){
+		case R.id.like:
+			if(arg1)
+			{
+				logo.setBackgroundResource(R.drawable.like_border);	
+				likeStatus.setVisibility(View.VISIBLE);
+				like.setText("Unlike");
+				like.setBackgroundResource(R.drawable.button_chkbox);
+			}
+			else{
+				logo.setBackgroundResource(0);
+				likeStatus.setVisibility(View.GONE);
+				like.setText("Like");
+				like.setBackgroundResource(R.drawable.button_green_chkbox);
+			}
+		}
 	}
 }

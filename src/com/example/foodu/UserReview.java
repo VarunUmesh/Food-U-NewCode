@@ -5,6 +5,8 @@ import java.util.Date;
 import model.Eatery;
 import helper.DatabaseHandler;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -81,6 +83,7 @@ public class UserReview extends Activity implements OnClickListener {
 		service.setRating(review.getService());
 		food.setRating(review.getFood());
 		comments.setText(review.getComment());
+		submitReview.setVisibility(View.INVISIBLE);
 		}
 		
 		return true;
@@ -100,10 +103,36 @@ public class UserReview extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
 		switch(v.getId())
 		{
 		case R.id.btn_submit:
-			db.addReview(new model.Review("shahx118@umn.edu", 1, food.getRating(),
+			
+			builder.setTitle("Thank You");
+			builder.setMessage(
+					"Your review is queued in the approval process. It will take 48 hours to process.");
+			builder.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,
+								int which) {
+							db.addReview(new model.Review("poual001@umn.edu", 1, food.getRating(),
+									ambience.getRating(),
+									economy.getRating(),
+									cleanliness.getRating(),
+									service.getRating(),
+									comments.getEditableText().toString(), new Date()));
+							//Intent intent = new Intent(this, com.example.foodu.Review.class);
+				            Intent intent = new Intent(UserReview.this, Review.class);
+
+						    startActivity(intent);
+						}
+					});
+			builder.create().show();
+			break;
+			//setIcon(android.R.drawable.ic_dialog_alert).show();
+			
+		/*	db.addReview(new model.Review("poual001@umn.edu", 1, food.getRating(),
 					ambience.getRating(),
 					economy.getRating(),
 					cleanliness.getRating(),
@@ -111,7 +140,7 @@ public class UserReview extends Activity implements OnClickListener {
 					comments.getEditableText().toString(), new Date()));
 			Intent intent = new Intent(this, com.example.foodu.Review.class);
 		    startActivity(intent);
-			break;
+			break;*/
 		}
 		
 	}
