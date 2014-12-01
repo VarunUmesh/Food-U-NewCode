@@ -160,7 +160,7 @@
         android:layout_below="@id/images" >
 
         <Button
-            android:id="@+id/Button02"
+            android:id="@+id/menu1"
             style="@style/button_text_gold_sm"
             android:layout_weight="1"
             android:text="View Menu" >

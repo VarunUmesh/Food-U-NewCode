@@ -31,7 +31,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 
 	ListView listView;
 	ProgressBar quality;
-	Button review;
+	Button review, menu1;
 	private List<ItemModel> reviews = new ArrayList<ItemModel>();
 	private DatabaseHandler db = new DatabaseHandler(this);
 	TextView title;
@@ -78,7 +78,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_detail, menu);
-		
+		menu1= (Button) findViewById(R.id.menu1);
 		title = (TextView) findViewById(R.id.heading);
 		review = (Button) findViewById(R.id.review);
 		quality = (ProgressBar) findViewById(R.id.qly);
@@ -86,6 +86,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		//quality.setBackgroundColor(getResources().getColor(R.color.green));
 		quality.setProgress(3);
 		title.setText(eatery.getName());
+		menu1.setOnClickListener(this);
 		review.setOnClickListener(this);
 		return true;
 	}
@@ -111,6 +112,11 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 			i.putExtra("EATERY", eatery.getId());
 			
 			startActivity(i);
+			
+		case R.id.menu1:
+			Intent i1 = new Intent(this,Maps.class);
+			startActivity(i1);
+			break;
 		}
 		
 	}

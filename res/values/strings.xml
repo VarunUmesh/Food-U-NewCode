@@ -67,9 +67,15 @@
     <string name="title_activity_user_recommendation">Profile Recommendation</string>
     <string name="title_activity_cuisine_recommendation">Cuisine Recommendation</string>
     <string name="title_activity_food_search">FoodSearch</string>
-
     <string name="fav_cuisine">Favourite Cuisines</string>
     <string name="cuisine_one">Cuisine 1</string>
+    
+    <string name="menu_settings">Settings</string>
+	<string name="gps.lable.gps">Warning</string>
+	<string name="gps.lable.warning_message">You need to start GPS to display Route on Map. Would you like to Enable it?</string>
+	<string name="no">No</string>
+    <string name="yes">Yes</string>
+
     <string-array name="Cuisines_choices">
         <item>American</item>
         <item>Cafe</item>
@@ -90,7 +96,10 @@
         <item>Vietnamese</item>
         <item>MiddleEast</item>
     </string-array>
+
     <string name="select_cuisine">Select a Cuisine</string>
     <string name="cuisine_two">Cuisine 2</string>
     <string name="cuisine_three">Cuisine 3</string>
+    <string name="title_activity_maps">Maps</string>
+
 </resources>

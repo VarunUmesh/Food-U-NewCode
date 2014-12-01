@@ -240,7 +240,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		List<MenuItem> menuitems = new ArrayList<MenuItem>();
 		menuitems.add(new MenuItem(13, "Veggie Delight", 5, helper
-				.image(R.drawable.subwayfood)));
+				.image(R.drawable.sandwish)));
 		menuitems.add(new MenuItem(3, "Chai Tea Latte", 4.99, helper
 				.image(R.drawable.cariboufood)));
 		menuitems.add(new MenuItem(5, "Eggplant Tofu", 6.50, helper
