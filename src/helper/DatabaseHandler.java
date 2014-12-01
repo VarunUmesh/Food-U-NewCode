@@ -172,9 +172,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,
 				1, helper.image(R.drawable.wiseowl)));
 		eateries.add(new Eatery(7, "Jamba Juice",
-				"Coffman Union's Minnesota Marketplace ",
-				"First Floor (next to the Commuter's Lounge)",
-				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
+				"Coffman Union's Minnesota Marketplace",
+				"First Floor",
+				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.jambajuice)));
 		eateries.add(new Eatery(8, "Papa John's",
 				"St. Paul Student Center's Terrace Cafe", "Main Level",
