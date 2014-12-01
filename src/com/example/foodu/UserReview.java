@@ -83,6 +83,7 @@ public class UserReview extends Activity implements OnClickListener {
 		service.setRating(review.getService());
 		food.setRating(review.getFood());
 		comments.setText(review.getComment());
+		submitReview.setVisibility(View.INVISIBLE);
 		}
 		
 		return true;
