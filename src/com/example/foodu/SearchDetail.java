@@ -78,7 +78,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_detail, menu);
-		menu1= (Button) findViewById(R.id.menu1);
+		menu1= (Button) findViewById(R.id.viewmenu);
 		title = (TextView) findViewById(R.id.heading);
 		review = (Button) findViewById(R.id.review);
 		quality = (ProgressBar) findViewById(R.id.qly);
@@ -109,14 +109,19 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		switch(id){
 		case R.id.review:
 			Intent i = new Intent(this, UserReview.class);
-			i.putExtra("EATERY", eatery.getId());
-			
+			i.putExtra("EATERY", eatery.getId());		
 			startActivity(i);
+			break;
 			
-		case R.id.menu1:
-			Intent i1 = new Intent(this,Maps.class);
+		case R.id.viewmenu:
+			Intent i1 = new Intent(this,MainActivity.class);
 			startActivity(i1);
 			break;
+			
+		/*case R.id.menu1:
+			Intent i1 = new Intent(this,Maps.class);
+			startActivity(i1);
+			break;*/
 		}
 		
 	}

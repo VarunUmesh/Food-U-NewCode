@@ -122,7 +122,6 @@ public class UserReview extends Activity implements OnClickListener {
 									cleanliness.getRating(),
 									service.getRating(),
 									comments.getEditableText().toString(), new Date()));
-							//Intent intent = new Intent(this, com.example.foodu.Review.class);
 				            Intent intent = new Intent(UserReview.this, Review.class);
 
 						    startActivity(intent);

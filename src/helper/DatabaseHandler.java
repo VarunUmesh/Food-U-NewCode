@@ -153,7 +153,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		eateries.add(new Eatery(1, "Topio's",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 1, 1, helper
-						.image(R.drawable.gopher)));
+						.image(R.drawable.topiologo)));
 		eateries.add(new Eatery(2, "Baja Sol",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper
@@ -161,19 +161,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower",
 				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0,
 				0, helper.image(R.drawable.caribou)));
-		eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center",
-				"Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper
-						.image(R.drawable.gopher)));
+		//eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center","Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.gopher)));
 		eateries.add(new Eatery(5, "Panda Express",
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0, 0, helper
 						.image(R.drawable.panda)));
-		eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library",
-				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,
-				1, helper.image(R.drawable.wiseowl)));
+		//eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library","Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,1, helper.image(R.drawable.wiseowl)));
 		eateries.add(new Eatery(7, "Jamba Juice",
-				"Coffman Union's Minnesota Marketplace",
-				"First Floor",
+				"Coffman Union's Minnesota Marketplace", "First Floor",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.jambajuice)));
 		eateries.add(new Eatery(8, "Papa John's",
@@ -184,27 +179,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.burgerstudio)));
-		eateries.add(new Eatery(10, "Bistro West Restaurant",
-				"Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0,
-				1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(10, "Bistro West Restaurant","Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0,1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
 		eateries.add(new Eatery(11, "Chick-fil-A",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper
-						.image(R.drawable.gopher)));
+						.image(R.drawable.chickfilalogo)));
 		eateries.add(new Eatery(12, "Greens To Go",
 				"St. Paul Student Center's Terrace Cafe", "Main Level",
 				"St. Paul", 0, 1, 0, 1, 0, 1, 1, 1, helper
-						.image(R.drawable.gopher)));
+						.image(R.drawable.greenstogologo)));
 		eateries.add(new Eatery(13, "Subway",
 				"Essentials Market in Blegen Hall", "Lowel Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.subway)));
-		eateries.add(new Eatery(14, "Abduls Afandy", "614 Washington Ave SE",
-				"", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
-						.image(R.drawable.gopher)));
+		//eateries.add(new Eatery(14, "Abduls Afandy", "614 Washington Ave SE","", "West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
 		eateries.add(new Eatery(15, "Bun Mi", "614 Washington Ave SE", "",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
-						.image(R.drawable.gopher)));
+						.image(R.drawable.bunmilogo)));
 
 		List<Review> reviews = new ArrayList<Review>();
 		// reviews.add(new Review("poual001@umn.edu", 1, 2, 3, 3, 3, 2, "", new
@@ -213,30 +204,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Date()));
 		reviews.add(new Review("poual001@umn.edu", 2, 4, 1, 4, 4, 3,
 				"Love it!", new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 2, 3, 4, 3, 3, 1, "",
-				new Date()));
+		//reviews.add(new Review("shahx118@umn.edu", 2, 3, 4, 3, 3, 1, "",new Date()));
 		reviews.add(new Review("poual001@umn.edu", 3, 3, 3, 3, 4, 3,
 				"Love the Mint Condition Mocha!!", new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 3, 3, 2, 3, 3, 1,
-				"Pumpkin Spice Latte is awesome.", new Date()));
+		//reviews.add(new Review("shahx118@umn.edu", 3, 3, 2, 3, 3, 1,"Pumpkin Spice Latte is awesome.", new Date()));
 		reviews.add(new Review("poual001@umn.edu", 5, 2, 1, 4, 4, 3, "",
 				new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 5, 4, 4, 5, 3, 1, "",
-				new Date()));
+		reviews.add(new Review("shahx118@umn.edu", 5, 4, 4, 5, 3, 1, "",new Date()));
 		reviews.add(new Review("poual001@umn.edu", 7, 2, 1, 4, 4, 3, "",
 				new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 7, 4, 4, 5, 3, 1, "",
-				new Date()));
+		//reviews.add(new Review("shahx118@umn.edu", 7, 4, 4, 5, 3, 1, "",new Date()));
 		reviews.add(new Review("poual001@umn.edu", 8, 2, 1, 4, 4, 3, "",
 				new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 8, 4, 4, 5, 3, 1, "",
-				new Date()));
+	//	reviews.add(new Review("shahx118@umn.edu", 8, 4, 4, 5, 3, 1, "",new Date()));
 		reviews.add(new Review("poual001@umn.edu", 9, 2, 1, 4, 4, 3,
 				"Burgers are pretty good", new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 9, 4, 4, 5, 3, 1, "",
-				new Date()));
-		reviews.add(new Review("poual001@umn.edu", 14, 4, 4, 5, 3, 1,
-				"Best Middle Eastern Food", new Date()));
+		//reviews.add(new Review("shahx118@umn.edu", 9, 4, 4, 5, 3, 1, "",new Date()));
+		reviews.add(new Review("poual001@umn.edu", 15, 4, 4, 5, 3, 1,
+				"Best Vietnamese Food", new Date()));
 
 		List<MenuItem> menuitems = new ArrayList<MenuItem>();
 		menuitems.add(new MenuItem(13, "Veggie Delight", 5, helper
@@ -247,8 +232,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				.image(R.drawable.pandaexpressfood)));
 		menuitems.add(new MenuItem(1, "Veggie Pizza Slice", 3, helper
 				.image(R.drawable.topiofood)));
-		menuitems.add(new MenuItem(7, "Summer delight Smoothie in different flavors", 6.5,
-				helper.image(R.drawable.jambajuicefood)));
+		menuitems.add(new MenuItem(7,
+				"Summer delight Smoothie in different flavors", 6.5, helper
+						.image(R.drawable.jambajuicefood)));
 		menuitems.add(new MenuItem(2, "Chicken Burrito", 7, helper
 				.image(R.drawable.bajasolfood)));
 		menuitems.add(new MenuItem(15, "Mock Duck Curry Sandwich", 6.4, helper
@@ -332,8 +318,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public List<MenuItem> getItems() {
 		List<MenuItem> items = new ArrayList<MenuItem>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db.query(TABLE_MENU_ITEM, null, null, null, null, null,
-				null);
+		Cursor cursor = db.query(TABLE_MENU_ITEM, null, null, null, null, null,null);
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 				items.add(new MenuItem(cursor.getInt(0), cursor.getString(1),
@@ -344,6 +330,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			cursor.close();
 		}
 		return items;
+	} finally {
+		    cursor.close();
+		}
 	}
 
 	public MenuItem getItem(int eatery) {
@@ -352,13 +341,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_MENU_ITEM, null,
 				MENU_ITEM_EATERY + "=?",
 				new String[] { String.valueOf(eatery) }, null, null, null);
+		try{
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
-				MenuItem item =  new
-				 MenuItem(cursor.getInt(cursor.getColumnIndex(MENU_ITEM_EATERY)),
-				 cursor.getString(cursor.getColumnIndex(MENU_ITEM_NAME)),
-				 cursor.getDouble(cursor.getColumnIndex(MENU_ITEM_PRICE)),
-				 cursor.getBlob(cursor.getColumnIndex(MENU_ITEM_IMG)));
+				MenuItem item = new MenuItem(
+						cursor.getInt(cursor.getColumnIndex(MENU_ITEM_EATERY)),
+						cursor.getString(cursor.getColumnIndex(MENU_ITEM_NAME)),
+						cursor.getDouble(cursor.getColumnIndex(MENU_ITEM_PRICE)),
+						cursor.getBlob(cursor.getColumnIndex(MENU_ITEM_IMG)));
 				cursor.close();
 				return item;
 			}
@@ -368,6 +358,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 
 		return null;
+	} finally {
+	    cursor.close();
+	}
 	}
 
 	public List<Eatery> getEateryByItem(String search) {
@@ -380,6 +373,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ TABLE_MENU_ITEM + "." + MENU_ITEM_NAME + ") =?";
 		Cursor cursor = db.rawQuery(query, new String[] { String
 				.valueOf(search).toLowerCase() });
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 				eateries.add(new Eatery(cursor.getInt(0), cursor.getString(1),
@@ -396,7 +390,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		return eateries;
+	} finally {
+		cursor.close();
 	}
+}
 
 	public List<Eatery> getEateries() {
 		List<Eatery> eateries = new ArrayList<Eatery>();
@@ -405,7 +402,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Cursor cursor = db.rawQuery(query, null);
 		Cursor cursor = db.query(TABLE_EATERY, null, null, null, null, null,
 				null);
-
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 				eateries.add(new Eatery(cursor.getInt(0), cursor.getString(1),
@@ -422,7 +419,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		return eateries;
-	}
+	} finally {
+		cursor.close();
+	} }
 
 	public List<Review> getEateryReviews(int eatery) {
 		List<Review> reviews = new ArrayList<Review>();
@@ -431,7 +430,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Cursor cursor = db.rawQuery(query, null);
 		Cursor cursor = db.query(TABLE_REVIEW, null, REVIEW_EATERY + "=?",
 				new String[] { String.valueOf(eatery) }, null, null, null);
-
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 
@@ -443,7 +442,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		return reviews;
-	}
+	} finally {
+		cursor.close();
+	} }
 
 	public List<Review> getUserReviews(String user) {
 		List<Review> reviews = new ArrayList<Review>();
@@ -452,7 +453,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Cursor cursor = db.rawQuery(query, null);
 		Cursor cursor = db.query(TABLE_REVIEW, null, REVIEW_EMAIL + "=?",
 				new String[] { user }, null, null, null);
-
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 				reviews.add(new Review(cursor.getString(0), cursor.getInt(1),
@@ -462,7 +463,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		return reviews;
-	}
+	} finally {
+		cursor.close();
+	} }
 
 	public Review getUserEateryReview(String user, int review) {
 		Review usereateryreview = new Review();
@@ -470,7 +473,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		Cursor cursor = db.query(TABLE_REVIEW, null, REVIEW_EMAIL + "=? AND "
 				+ REVIEW_EATERY + "=?", new String[] { user, review + "" },
 				null, null, null);
-
+		try{
 		if (cursor.moveToFirst()) {
 
 			usereateryreview = new Review(cursor.getString(0),
@@ -479,14 +482,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					cursor.getString(7), new Date());
 		}
 		return usereateryreview;
-	}
+	} finally {
+		cursor.close();
+	} }
 
 	public List<Review> getReviews() {
 		List<Review> reviews = new ArrayList<Review>();
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.query(TABLE_REVIEW, null, null, null, null, null,
 				null);
-
+		try{
 		if (cursor.moveToFirst()) {
 			do {
 				// try {
@@ -500,7 +505,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		return reviews;
-	}
+	} finally {
+		cursor.close();
+	}}
 
 	public void addReview(Review review) {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -524,6 +531,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				USER_PASSWORD, USER_FIRSTNAME, USER_LASTNAME, USER_VEGETERIAN,
 				USER_VEGAN, USER_GLUTEN, USER_BUDGET }, USER_EMAIL + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
+		try{
 		if (cursor != null)
 			cursor.moveToFirst();
 		User user = new User(cursor.getString(0), cursor.getString(1),
@@ -532,12 +540,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 						.getString(5)), Integer.parseInt(cursor.getString(6)),
 				Double.parseDouble(cursor.getString(7)));
 		return user;
-	}
+	} finally {
+		cursor.close();
+	}}
 
 	public Eatery getEatery(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_EATERY, null, EATERY_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
+		try{
 		if (cursor != null) {
 			cursor.moveToFirst();
 			Eatery eatery = new Eatery(cursor.getInt(0), cursor.getString(1),
@@ -554,7 +565,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			return eatery;
 		}
 		return null;
-	}
+	} finally {
+		cursor.close();
+	}}
 
 	public boolean validateUser(String id, String password) {
 		SQLiteDatabase db = this.getReadableDatabase();
