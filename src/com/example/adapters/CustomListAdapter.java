@@ -47,8 +47,10 @@ public class CustomListAdapter extends BaseAdapter {
          
         // title
         title.setText(m.getTitle());
+        if(m.getIcon() != null){
         Bitmap bitmap = BitmapFactory.decodeByteArray(m.getIcon(), 0, m.getIcon().length);
         icon.setImageBitmap(bitmap);
+        }
         //icon.setImageResource(m.getIcon());
          
         // description

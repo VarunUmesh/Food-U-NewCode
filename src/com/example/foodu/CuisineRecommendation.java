@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -37,7 +38,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 	private final int MAXRECOMMENDATION = 2;
 	DatabaseHandler db = new DatabaseHandler(this);
 	CheckBox like;
-	Button dislike;
+	Button dislike, info, call, direction;
 	ImageView logo, food;
 	TextView title, address, foodDesc;
 	int count = 0, randomChoice=-1;
@@ -63,6 +64,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		// randomChoice = grabChoice.getIntExtra("randomChoiceVariable", 0);
 		selection = grabChoice
 				.getIntegerArrayListExtra("selection");
+		if(selection != null){
 		if(selection.size() < MAXRECOMMENDATION)
 			count = MAXRECOMMENDATION;
 		CharSequence[] items = getResources().getStringArray(
@@ -72,6 +74,10 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 			selectionStrings.add(items[i]);
 
 		randomChoice = generateRandomChoice(selection);
+		}
+		else{
+			setTitle("Recommendation");
+		}
 		// Toast.makeText(this, "it is " + randomChoice,
 		// Toast.LENGTH_LONG).show();
 
@@ -88,7 +94,12 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		//sLike = (TextView) findViewById(R.id.slike);
 		like = (CheckBox) findViewById(R.id.like);
 		dislike = (Button) findViewById(R.id.dislike);
-		//like.setOnClickListener(this);
+		direction = (Button) findViewById(R.id.directions);
+		call = (Button) findViewById(R.id.call);
+		info = (Button) findViewById(R.id.info);
+		info.setOnClickListener(this);
+		call.setOnClickListener(this);
+		direction.setOnClickListener(this);
 		like.setOnCheckedChangeListener(this);
 		dislike.setOnClickListener(this);
 
@@ -164,6 +175,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 
 	@Override
 	public void onClick(View arg0) {
+		Intent intent;
 		int u = arg0.getId();
 		switch (u) {
 		case R.id.like:
@@ -215,10 +227,11 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 					foodDesc.setText("$ " + m.getPrice() + "\n" + m.getName());
 				}
 			} else {
-				new AlertDialog.Builder(this)
-						.setTitle("Sorry")
+				AlertDialog.Builder builder = 
+				new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+				builder.setTitle("Sorry")
 						.setMessage(
-								"Sorry you did not like our recommendations. Please try again next time.")
+								"Sorry you did not like our recommendations. Build your profile and try again.")
 						.setPositiveButton("OK",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
@@ -227,11 +240,29 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 												MainActivity.class);
 										startActivity(i);
 									}
-								}).setIcon(android.R.drawable.ic_dialog_alert)
-						.show();
+								}).setIcon(R.drawable.ic_dialog_alert);
+						//.show();
+				AlertDialog dialog = builder.show();
+				int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
+				View titleDivider = dialog.findViewById(titleDividerId);
+				if (titleDivider != null)
+				titleDivider.setBackgroundColor(getResources().getColor(R.color.maroon));
 			}
 			logo.setBackgroundResource(0);
 			like.setChecked(false);
+			break;
+		case R.id.call:
+			intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "2182131257"));
+			startActivity(intent);
+			break;
+		case R.id.info:
+			intent = new Intent(this, SearchDetail.class);
+			intent.putExtra("EATERY", e.getId());
+			startActivity(intent);
+			break;
+		case R.id.directions:
+			intent = new Intent(this, Maps.class);
+			startActivity(intent);
 			break;
 		}
 	}

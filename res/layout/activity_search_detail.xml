@@ -27,10 +27,10 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/quality"
+                android:id="@+id/food"
                 style="@style/ratingsummary"
                 android:layout_below="@id/heading"
-                android:text="Food Quality" />
+                android:text="Food" />
 
             <ProgressBar
                 android:id="@+id/qly"
@@ -40,7 +40,7 @@
                 android:progressDrawable="@drawable/progress_green"
                 android:minHeight="5dip"
                 android:max="100"
-                android:progress="50" />
+                android:progress="80" />
         </TableRow>
 
         <TableRow
@@ -49,19 +49,19 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/value"
+                android:id="@+id/ambience"
                 style="@style/ratingsummary"
-                android:text="Value for money" />
+                android:text="Ambience" />
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress_orange"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="5dip"
                 android:max="100"
-                android:progress="20" />
+                android:progress="50" />
         </TableRow>
-
-        <!-- display this button in 3rd column via layout_column(zero based) -->
 
         <TableRow
             android:id="@+id/tableRow4"
@@ -69,24 +69,77 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/hygience"
+                android:id="@+id/economy"
                 style="@style/ratingsummary"
-                android:text="Hygience" />
+                android:text="Economy" />
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress_red"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="5dip"
+                android:max="100"
+                android:progress="30" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/clean"
+                style="@style/ratingsummary"
+                android:text="Cleanliness" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress_orange"
+                android:minHeight="5dip"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:max="100"
                 android:progress="50" />
         </TableRow>
-    </TableLayout>
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
-    <HorizontalScrollView
-        android:id="@+id/images"
+            <TextView
+                android:id="@+id/service"
+                style="@style/ratingsummary"
+                android:text="Service" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress_green"
+                android:minHeight="5dip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="97" />
+        </TableRow>
+    </TableLayout>
+<RelativeLayout android:id="@+id/images"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tableLayout1">
+        <ImageView android:src="@drawable/ic_action_previous_item" 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <ImageView android:src="@drawable/ic_action_next_item" 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+        <HorizontalScrollView
+        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tableLayout1" >
+         >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -129,6 +182,9 @@
                 android:src="@drawable/gopher" />
         </LinearLayout>
     </HorizontalScrollView>
+    
+</RelativeLayout>
+    
     <!--
 <LinearLayout android:orientation="horizontal"
         android:id="@+id/images"
@@ -163,21 +219,32 @@
             android:id="@+id/menu1"
             style="@style/button_text_gold_sm"
             android:layout_weight="1"
-            android:text="View Menu" >
+            android:text="Menu" >
         </Button>
 
         <Button
             android:id="@+id/review"
             style="@style/button_text_gold_sm"
             android:layout_weight="1"
-            android:text="Write a Review" >
+            android:drawableLeft="@drawable/ic_action_edit"
+            android:text="Review" >
+        </Button>
+        
+        <Button
+            android:id="@+id/direction"
+            style="@style/button_text_gold_sm"
+            android:drawableLeft="@drawable/ic_action_place"
+            android:layout_weight="1"
+            android:text="Direction" >
         </Button>
     </LinearLayout>
+    <TextView android:id="@+id/message" android:layout_below="@id/buttons" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
 
     <ListView
         android:id="@+id/reviews"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/buttons" />
+        android:layout_below="@id/message" />
 
 </RelativeLayout>

@@ -116,14 +116,15 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 	                    }
 	                }
 		            
-		            /* Get a random choice out of the selected items, this number is passed to the CuisineRecommendation class*/
-		            
-		            //int randomChoice = generateRandomChoice(selctedList);
-		            //Toast.makeText(getBaseContext(), "Selected Cuisines\n"+ seletedItems, Toast.LENGTH_LONG).show();
+		           if(seletedItems.size() > 0){
 		            Intent userrecommendation = new Intent(Recommendation.this, CuisineRecommendation.class);
 		            //userrecommendation.putExtra("randomChoiceVariable",randomChoice);
 		            userrecommendation.putExtra("selection",seletedItems);
 				    startActivity(userrecommendation);
+		           }
+		           else{
+		        	   Toast.makeText(getApplicationContext(), "Make a Cuisine Recommendation", Toast.LENGTH_LONG);
+		           }
 		        }
 		    });
 		    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -135,7 +136,7 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		    builder.create().show();
 			break;
 		case R.id.profile:
-			Intent userrecommendation = new Intent(Recommendation.this, UserRecommendation.class);
+			Intent userrecommendation = new Intent(Recommendation.this, CuisineRecommendation.class);
 		    startActivity(userrecommendation);
 			break;
 		}

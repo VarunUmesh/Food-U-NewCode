@@ -12,9 +12,9 @@
           android:radius="6dp" />
       <padding
           android:left="0dp"
-          android:top="7dp"
-          android:right="7dp"
-          android:bottom="7dp" />
+          android:top="15dp"
+          android:right="15dp"
+          android:bottom="15dp" />
     </shape>
   </item>
   <item android:state_enabled="false" >
@@ -28,9 +28,9 @@
           android:radius="6dp" />
       <padding
           android:left="0dp"
-          android:top="7dp"
-          android:right="7dp"
-          android:bottom="7dp" />
+          android:top="15dp"
+          android:right="15dp"
+          android:bottom="15dp" />
     </shape>
   </item>
   <item>
@@ -46,9 +46,9 @@
           android:radius="6dp" />
       <padding
           android:left="0dp"
-          android:top="7dp"
-          android:right="7dp"
-          android:bottom="7dp" />
+          android:top="15dp"
+          android:right="15dp"
+          android:bottom="15dp" />
     </shape>
   </item>
 </selector>

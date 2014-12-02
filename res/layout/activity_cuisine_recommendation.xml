@@ -1,190 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
-
-    <LinearLayout
-        android:id="@+id/controls"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="10" >
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1"
-            android:text="How about Subway?"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FF006900" />
-
-        <RelativeLayout
-            android:id="@+id/relativelayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="7dp"
-            android:layout_weight="4" >
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:contentDescription="lll"
-                android:src="@drawable/subway" />
-
-            <LinearLayout
-                android:id="@+id/myImageViewText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="#B399CC00"
-                android:gravity="left|top"
-                android:padding="5dip"
-                android:visibility="invisible" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:contentDescription="lll"
-                    android:src="@drawable/ic_action_accept" />
-
-                <TextView
-                    style="@style/like_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="5dip"
-                    android:text="You liked this"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/foreground"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:weightSum="1" >
-
-            <CheckBox
-                android:id="@+id/like"
-                style="@style/button_like"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="5dip"
-                android:layout_weight=".25"
-                android:background="@drawable/button_green_chkbox"
-                android:button="@drawable/like_button_state"
-                android:checked="false"
-                android:text="Like" />
-
-     
-
-            <TextView
-                android:id="@+id/button_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_weight=".75"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingRight="10dp"
-                android:text="Fancy this?"
-                android:textColor="#FF006900"
-                android:textSize="18sp"
-                android:textStyle="bold|italic" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/maroon" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:weightSum="1" >
-
-            <ImageView
-                android:id="@+id/numberDays"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_weight=".4"
-                android:adjustViewBounds="true"
-                android:scaleType="fitStart"
-                android:src="@drawable/sandwish" />
-
-            <TextView
-                android:id="@+id/foodDesc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
-                android:layout_weight=".6"
-                android:paddingLeft="20dp"
-                android:text="Fish Sandich\n$5"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
-    </LinearLayout>
+    android:layout_weight="1"
+    android:fillViewport="true" >
 
     <RelativeLayout
-        android:id="@+id/InnerRelativeLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
 
         <LinearLayout
-            android:id="@+id/LinearLayout02"
+            android:id="@+id/controls"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center" >
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10" >
 
-            <Button
-                android:id="@+id/directions"
-                style="@style/button_text_green"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/white_wic_pinpoint"
-                android:text="Directions" />
+                android:text="How about Subway?"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FF006900" />
 
-            <Button
-                android:id="@+id/dislike"
-                style="@style/button_text"
-                android:layout_width="0dp"
+            <RelativeLayout
+                android:id="@+id/relativelayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="3" >
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="lll"
+                    android:padding="5dp"
+                    android:src="@drawable/subway" />
+
+                <LinearLayout
+                    android:id="@+id/myImageViewText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="#B370c656"
+                    android:gravity="left|top"
+                    android:padding="5dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="lll"
+                        android:src="@drawable/ic_action_accept" />
+
+                    <TextView
+                        style="@style/like_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dip"
+                        android:text="You liked this"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/foreground"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:weightSum="2" >
+
+                <TextView
+                    android:id="@+id/button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <CheckBox
+                        android:id="@+id/like"
+                        style="@style/button_like"
+                        android:layout_width="90sp"
+                        android:background="@drawable/button_green_chkbox"
+                        android:button="@drawable/like_button_state"
+                        android:checked="false"
+                        android:text="Like" />
+
+                    <Button
+                        android:id="@+id/info"
+                        style="@style/button_text_gold_xs"
+                        android:drawableLeft="@drawable/white_ic_info"
+                        android:text="@string/info" />
+
+                    <Button
+                        android:id="@+id/call"
+                        style="@style/button_text_gold_xs"
+                        android:drawableLeft="@drawable/white_ic_call"
+                        android:text="@string/call" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_action_refresh"
-                android:text="Another" />
+                android:layout_weight="1" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/maroon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#fff3f3f3"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+              
+                    android:text="Fancy This?"
+                    android:textColor="#FF006900" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:weightSum="1" >
+
+                <ImageView
+                    android:id="@+id/numberDays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight=".4"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/sandwish" />
+
+                <TextView
+                    android:id="@+id/foodDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:layout_weight=".6"
+                    android:paddingLeft="20dp"
+                    android:text="Fish Sandich\n$5"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
         </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/InnerRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" >
+
+           <LinearLayout
+                android:id="@+id/LinearLayout02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/directions"
+                    style="@style/button_text_gold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/white_wic_pinpoint"
+                    android:text="Directions" />
+
+                <Button
+                    android:id="@+id/dislike"
+                    style="@style/button_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_action_refresh"
+                    android:text="Another" />
+            </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

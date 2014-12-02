@@ -11,7 +11,7 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:gravity="center"
-        android:background="@color/gold"
+        android:background="@color/maroon"
         android:orientation="horizontal" >
 
         <ImageButton
@@ -32,7 +32,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/rating" />
+                    android:src="@drawable/ic_action_edit" />
         <ImageButton
                     android:id="@+id/location"
                     android:background="@null"
@@ -42,7 +42,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/location" />
+                    android:src="@drawable/ic_action_place" />
     </LinearLayout>
 
 </LinearLayout>

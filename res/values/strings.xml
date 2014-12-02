@@ -69,6 +69,8 @@
     <string name="title_activity_food_search">FoodSearch</string>
     <string name="fav_cuisine">Favourite Cuisines</string>
     <string name="cuisine_one">Cuisine 1</string>
+    <string name="info">Info</string>
+    <string name="call">Call</string>
     
     <string name="menu_settings">Settings</string>
 	<string name="gps.lable.gps">Warning</string>

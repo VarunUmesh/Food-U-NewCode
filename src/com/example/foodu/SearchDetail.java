@@ -31,10 +31,10 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 
 	ListView listView;
 	ProgressBar quality;
-	Button review, menu1;
+	Button review, menu1, location;
 	private List<ItemModel> reviews = new ArrayList<ItemModel>();
 	private DatabaseHandler db = new DatabaseHandler(this);
-	TextView title;
+	TextView title, message;
 	Eatery eatery;
 	int id;
 	private CustomListAdapter custom_adapter;
@@ -72,6 +72,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	        android.R.layout.simple_list_item_1, values);
 	    custom_adapter = new CustomListAdapter(this, reviews);
 	    listView.setAdapter(custom_adapter);
+	    
 	}
 
 	@Override
@@ -79,15 +80,21 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_detail, menu);
 		menu1= (Button) findViewById(R.id.menu1);
+		location = (Button) findViewById(R.id.location);
 		title = (TextView) findViewById(R.id.heading);
+		message = (TextView) findViewById(R.id.message);
 		review = (Button) findViewById(R.id.review);
 		quality = (ProgressBar) findViewById(R.id.qly);
 		quality.setMax(5);
 		//quality.setBackgroundColor(getResources().getColor(R.color.green));
+		if(reviews == null || reviews.size() < 1){
+	    	message.setText("No review Available");
+	    }
 		quality.setProgress(3);
 		title.setText(eatery.getName());
 		menu1.setOnClickListener(this);
 		review.setOnClickListener(this);
+		//location.setOnClickListener(this);
 		return true;
 	}
 
@@ -106,16 +113,16 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		int id = arg0.getId();
+		Intent i;
 		switch(id){
 		case R.id.review:
-			Intent i = new Intent(this, UserReview.class);
+			i = new Intent(this, UserReview.class);
 			i.putExtra("EATERY", eatery.getId());
-			
 			startActivity(i);
 			
-		case R.id.menu1:
-			Intent i1 = new Intent(this,Maps.class);
-			startActivity(i1);
+		case R.id.location:
+			i = new Intent(this,Maps.class);
+			startActivity(i);
 			break;
 		}
 		
