@@ -53,7 +53,8 @@ public class Search extends ActionBarActivity implements OnItemClickListener, On
 		setContentView(R.layout.activity_search);
 		String message = "";
 		final Intent queryIntent = getIntent();
-		if(queryIntent.getStringExtra("SEARCH_MESSAGE")!="" || !queryIntent.getStringExtra("SEARCH_MESSAGE").isEmpty() || queryIntent.getStringExtra("SEARCH_MESSAGE") != null){
+		String searchMsg = queryIntent.getStringExtra("SEARCH_MESSAGE");
+		if(searchMsg!="" && searchMsg != null){
 			System.out.println("search message== " + queryIntent.getStringExtra("SEARCH_MESSAGE"));
 			message = queryIntent.getStringExtra("SEARCH_MESSAGE").toLowerCase();
 		}

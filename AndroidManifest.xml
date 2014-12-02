@@ -106,7 +106,7 @@
         <activity
             android:name=".SearchDetail"
             android:label="@string/title_activity_search_detail"
-            android:parentActivityName=".Search"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
