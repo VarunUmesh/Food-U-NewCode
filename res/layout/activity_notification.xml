@@ -24,5 +24,36 @@
     android:layout_height="fill_parent"
     android:gravity="center"
     />
+    
+    <LinearLayout
+        android:id="@+id/undolayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/listView1"
+        android:layout_alignLeft="@+id/listView1"
+        android:background="@android:color/background_dark"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true" >
+
+        <TextView
+            android:id="@+id/undotext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/undobutton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="UNDO" />
+    </LinearLayout>
 
 </RelativeLayout>

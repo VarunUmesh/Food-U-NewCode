@@ -35,23 +35,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodu.NotificationUpdate;
+import com.example.foodu.UndoDelete.UndoListener;
+import com.example.foodu.NotificationData;
+import com.example.foodu.UndoDelete;
 import com.google.android.gcm.GCMRegistrar;
 
-public class Notification extends ActionBarActivity {
+public class Notification extends ActionBarActivity implements UndoListener, NotificationUpdate {
 
 	LinkedList<NotificationData> notificationList = new LinkedList<NotificationData>();
+	LinkedList<NotificationData> backupNotificationList;
 	ListView listView = null;
 	NotificationListAdapter adaptor;
 	ActionMode mActionMode;
+	UndoDelete mUndoView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notification);
-		
-		overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-		
+		//overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
 		listView = (ListView) findViewById(R.id.listView1);
+		mUndoView= new UndoDelete(findViewById(R.id.undolayout), this);
 		
 		// Retrive the data from GCMIntentService.java
         Intent i = getIntent();
@@ -78,6 +83,13 @@ public class Notification extends ActionBarActivity {
 		});
 	}
 
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		GCMIntentService.resisterNotification(this);
+	}
+	
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -164,6 +176,7 @@ public class Notification extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onPause();
 		writeToFile();
+		GCMIntentService.resisterNotification(null);
 	}
 
 	@Override
@@ -221,8 +234,9 @@ public class Notification extends ActionBarActivity {
 				mode.finish();
 				return true;
 			case R.id.menu_delete:
-				//deleteData();
-				showAlertBox();
+				deleteData();
+				mode.finish();
+				//showAlertBox();
 				return false;
 			case R.id.menu_share:
 				shareDate();
@@ -257,32 +271,6 @@ public class Notification extends ActionBarActivity {
 		if (mActionMode != null)
 			mActionMode.setTitle(String.valueOf(adaptor.getSelectedCount()));
 
-	}
-
-	protected void showAlertBox() {
-		// TODO Auto-generated method stub
-		AlertDialog.Builder builder1 = new AlertDialog.Builder(Notification.this);
-        builder1.setMessage("Delete " + adaptor.getSelectedIds().size()+ " events?");
-        builder1.setCancelable(true);
-        builder1.setIcon(R.drawable.alert);
-        builder1.setTitle("Caution");
-        builder1.setIcon(android.R.drawable.ic_dialog_alert);
-        builder1.setPositiveButton("Yes",
-                new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                deleteData();
-                mActionMode.finish();
-            }
-        });
-        builder1.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alert11 = builder1.create();
-        alert11.show();
 	}
 
 	protected void copyToClip() {
@@ -323,6 +311,8 @@ public class Notification extends ActionBarActivity {
 	}
 
 	protected void deleteData() {
+		backupNotificationList = new LinkedList<NotificationData>();
+		backupNotificationList.addAll(notificationList);
 		int count = 0;
 		int startPoint = adaptor.getSelectedIds().keyAt(0);
 		for (int i = 0; i < adaptor.getSelectedIds().size(); i++) {
@@ -338,7 +328,7 @@ public class Notification extends ActionBarActivity {
 		Toast.makeText(getApplicationContext(),
 				count + message+" deleted", Toast.LENGTH_LONG)
 				.show();
-		
+		mUndoView.showUndo(count + message+" deleted");
 	}
 
 	private void addToCalender() {
@@ -394,6 +384,38 @@ public class Notification extends ActionBarActivity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	void undoRecentDelete(){
+		  notificationList.clear();
+		notificationList.addAll(backupNotificationList);
+		adaptor.notifyDataSetChanged();
+	}
+	
+	@Override
+	public void onUndo() {
+		// TODO Auto-generated method stub
+		undoRecentDelete();
+	}
+	
+	@Override
+	public void updateNotificationData() {
+		// TODO Auto-generated method stub
+	
+		if(adaptor!=null){
+			notificationList.clear();
+			readFromFile();
+		runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+            
+        			adaptor.notifyDataSetChanged();
+        		
+            }
+        });
+		}
+		
 	}
 
 }
