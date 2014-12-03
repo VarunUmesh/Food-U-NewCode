@@ -34,7 +34,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 
 	ListView listView;
 	ProgressBar quality;
-	Button review, menu1, location;
+	Button review, menu1, direction;
 	private List<ItemModel> reviews = new ArrayList<ItemModel>();
 	private DatabaseHandler db = new DatabaseHandler(this);
 	TextView title, message;
@@ -83,7 +83,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_detail, menu);
 
-		location = (Button) findViewById(R.id.location);
+		direction = (Button) findViewById(R.id.direction);
 		menu1= (Button) findViewById(R.id.viewmenu);
 		title = (TextView) findViewById(R.id.heading);
 		message = (TextView) findViewById(R.id.message);
@@ -100,7 +100,7 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		title.setText(eatery.getName());
 		menu1.setOnClickListener(this);
 		review.setOnClickListener(this);
-		//location.setOnClickListener(this);
+		direction.setOnClickListener(this);
 		return true;
 	}
 
@@ -128,10 +128,10 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 			i.putExtra("EATERY", eatery.getId());
 			startActivity(i);
 			break;
-		case R.id.location:
-			Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
-			//i = new Intent(this, Maps.class);
-			//startActivity(i);
+		case R.id.direction:
+			//Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+			i = new Intent(this, Maps.class);
+			startActivity(i);
 			break;
 		case R.id.viewmenu:
 			builder.setTitle("Sorry");
