@@ -183,9 +183,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.burgerstudio)));
-		eateries.add(new Eatery(10, "Bistro West Restaurant",
-				"Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0,
-				1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
+		//eateries.add(new Eatery(10, "Bistro West Restaurant","Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0,1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
 		eateries.add(new Eatery(11, "Chick-fil-A",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper
@@ -239,13 +237,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		List<MenuItem> menuitems = new ArrayList<MenuItem>();
 		menuitems.add(new MenuItem(13, "Veggie Delight", 5, helper
-				.image(R.drawable.sandwish)));
+				.image(R.drawable.subwayfood)));
 		menuitems.add(new MenuItem(3, "Chai Tea Latte", 4.99, helper
 				.image(R.drawable.cariboufood)));
 		menuitems.add(new MenuItem(5, "Eggplant Tofu", 6.50, helper
 				.image(R.drawable.pandaexpressfood)));
 		menuitems.add(new MenuItem(1, "Veggie Pizza Slice", 3, helper
 				.image(R.drawable.topiofood)));
+		menuitems.add(new MenuItem(8, "Cheese Pizza", 3.25, helper
+				.image(R.drawable.papajohnsfood)));
 		menuitems.add(new MenuItem(7,
 				"Summer delight Smoothie in different flavors", 6.5, helper
 						.image(R.drawable.jambajuicefood)));
@@ -253,6 +253,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				.image(R.drawable.bajasolfood)));
 		menuitems.add(new MenuItem(15, "Mock Duck Curry Sandwich", 6.4, helper
 				.image(R.drawable.bunmifood)));
+		menuitems.add(new MenuItem(12, "Fresh Garden Salad", 6, helper
+				.image(R.drawable.greenstogofood)));
 		menuitems.add(new MenuItem(11, "Chicken Burger", 6.4, helper
 				.image(R.drawable.chicfilachickenfood)));
 
@@ -363,6 +365,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		if (cursor != null) {
 			if (cursor.moveToFirst()) {
+				if(!cursor.isNull(cursor.getColumnIndex(MENU_ITEM_EATERY))){
 				MenuItem item = new MenuItem(
 						cursor.getInt(cursor.getColumnIndex(MENU_ITEM_EATERY)),
 						cursor.getString(cursor.getColumnIndex(MENU_ITEM_NAME)),
@@ -373,6 +376,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			}
 			if (cursor != null && !cursor.isClosed()) {
 				cursor.close();
+			}
 			}
 		}
 

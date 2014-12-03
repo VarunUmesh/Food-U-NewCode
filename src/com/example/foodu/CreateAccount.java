@@ -132,7 +132,7 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 								fname.getText().toString(), 
 								lname.getText().toString(), 
 								0, 0, 0, 8));
-			Intent intent = new Intent(this, Login.class);
+			Intent intent = new Intent(this, MainActivity.class);
 		    startActivity(intent); 
 			break;
 		}
