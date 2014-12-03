@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg"
     tools:context="com.example.foodu.SearchDetail" >
 
     <TextView
@@ -55,12 +56,12 @@
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:progressDrawable="@drawable/progress_orange"
+                android:progressDrawable="@drawable/progress_green"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
                 android:minHeight="5dip"
                 android:max="100"
-                android:progress="50" />
+                android:progress="40"
+                android:layout_height="wrap_content"/>
         </TableRow>
 
         <TableRow
@@ -71,11 +72,11 @@
             <TextView
                 android:id="@+id/economy"
                 style="@style/ratingsummary"
-                android:text="Economy" />
+                android:text="Economy"/>
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:progressDrawable="@drawable/progress_red"
+                android:progressDrawable="@drawable/progress_green"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="5dip"
@@ -94,10 +95,10 @@
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:progressDrawable="@drawable/progress_orange"
                 android:minHeight="5dip"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/progress_green"
                 android:max="100"
                 android:progress="50" />
         </TableRow>
@@ -158,28 +159,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/gopher" />
+                android:src="@drawable/topiofood" />
 
             <ImageView
                 android:id="@+id/numberDaysd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/gopher" />
+                android:src="@drawable/topiofood" />
 
             <ImageView
                 android:id="@+id/numberDaysf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/gopher" />
+                android:src="@drawable/topiofood" />
 
             <ImageView
                 android:id="@+id/numberDayse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/gopher" />
+                android:src="@drawable/topiofood" />
         </LinearLayout>
     </HorizontalScrollView>
     
@@ -216,7 +217,7 @@
         android:layout_below="@id/images" >
 
         <Button
-            android:id="@+id/menu1"
+            android:id="@+id/viewmenu"
             style="@style/button_text_gold_sm"
             android:layout_weight="1"
             android:text="Menu" >

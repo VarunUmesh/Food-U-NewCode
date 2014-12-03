@@ -1,7 +1,7 @@
 package com.example.foodu;
 
-import model.Eatery;
 import helper.DatabaseHandler;
+import model.Eatery;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

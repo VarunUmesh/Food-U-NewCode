@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 
-import com.example.foodu.R;
 import com.google.android.gcm.GCMBaseIntentService;
 
 public class GCMIntentService extends GCMBaseIntentService {

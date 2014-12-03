@@ -9,13 +9,9 @@ import java.util.List;
 
 import model.Eatery;
 import model.User;
-
-import com.example.adapters.CustomListAdapter;
-import com.example.adapters.ItemModel;
-
-import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +22,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.adapters.CustomListAdapter;
+import com.example.adapters.ItemModel;
 
 public class SearchDetail extends ActionBarActivity implements OnClickListener {
 
@@ -79,8 +78,9 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search_detail, menu);
-		menu1= (Button) findViewById(R.id.menu1);
+
 		location = (Button) findViewById(R.id.location);
+		menu1= (Button) findViewById(R.id.viewmenu);
 		title = (TextView) findViewById(R.id.heading);
 		message = (TextView) findViewById(R.id.message);
 		review = (Button) findViewById(R.id.review);
@@ -119,11 +119,21 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 			i = new Intent(this, UserReview.class);
 			i.putExtra("EATERY", eatery.getId());
 			startActivity(i);
-			
-		case R.id.location:
-			i = new Intent(this,Maps.class);
-			startActivity(i);
 			break;
+		case R.id.location:
+			Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+			//i = new Intent(this, Maps.class);
+			//startActivity(i);
+			break;
+		case R.id.viewmenu:
+			Intent i1 = new Intent(this,MainActivity.class);
+			startActivity(i1);
+			break;
+			
+		/*case R.id.menu1:
+			Intent i1 = new Intent(this,Maps.class);
+			startActivity(i1);
+			break;*/
 		}
 		
 	}

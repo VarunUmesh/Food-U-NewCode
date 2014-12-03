@@ -1,19 +1,13 @@
 package com.example.foodu;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,13 +16,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageButton;
 import android.widget.Toast;
-import android.os.Build;
 
 public class Recommendation extends ActionBarActivity implements OnClickListener {
 
-	Button cuisine, profile;
+	Button cuisine, profile; 
+	ImageButton location;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,8 +42,10 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		
 		cuisine = (Button) findViewById(R.id.cuisine);
 		profile = (Button) findViewById(R.id.profile);
+		location = (ImageButton) findViewById(R.id.location);
 		cuisine.setOnClickListener(this);
 		profile.setOnClickListener(this);
+		location.setOnClickListener(this);
 		
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.recommendation, menu);
@@ -138,6 +134,10 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 		case R.id.profile:
 			Intent userrecommendation = new Intent(Recommendation.this, CuisineRecommendation.class);
 		    startActivity(userrecommendation);
+			break;
+		case R.id.location:
+			Intent loc = new Intent(Recommendation.this, Maps.class);
+		    startActivity(loc);
 			break;
 		}
 		

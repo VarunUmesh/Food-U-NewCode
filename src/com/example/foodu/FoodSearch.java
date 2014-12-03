@@ -7,23 +7,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import model.Eatery;
-
-import com.example.adapters.ExpandableListAdapter;
-import com.example.adapters.ItemModel;
-import com.example.foodu.R.color;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+
+import com.example.adapters.ExpandableListAdapter;
+import com.example.adapters.ItemModel;
 
 public class FoodSearch extends Activity implements OnGroupExpandListener, OnGroupClickListener {
 

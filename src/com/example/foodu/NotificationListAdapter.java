@@ -1,9 +1,6 @@
 package com.example.foodu;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-
-import com.example.foodu.R;
 
 import android.content.Context;
 import android.graphics.Color;

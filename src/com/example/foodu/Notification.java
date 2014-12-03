@@ -11,14 +11,6 @@ import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
 
-import com.example.foodu.R;
-import com.example.foodu.R.drawable;
-import com.example.foodu.R.id;
-import com.example.foodu.R.layout;
-import com.example.foodu.R.menu;
-import com.google.android.gcm.GCMRegistrar;
-
-import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -30,7 +22,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.ActionMode;
 import android.view.ActionMode.Callback;
 import android.view.Menu;
@@ -42,6 +34,8 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gcm.GCMRegistrar;
 
 public class Notification extends ActionBarActivity {
 

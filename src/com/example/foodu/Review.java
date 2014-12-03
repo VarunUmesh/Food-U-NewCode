@@ -9,11 +9,6 @@ import java.util.List;
 
 import model.Eatery;
 import model.User;
-
-import com.example.adapters.CustomListAdapter;
-import com.example.adapters.ItemModel;
-
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +20,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
+
+import com.example.adapters.CustomListAdapter;
+import com.example.adapters.ItemModel;
 
 public class Review extends ActionBarActivity implements OnItemClickListener {
 	

@@ -1,15 +1,5 @@
 package com.example.foodu;
 
-import com.example.foodu.GetCurrentLocation;
-import com.example.foodu.R;
-import com.example.foodu.R.id;
-import com.example.foodu.R.layout;
-import com.example.foodu.R.menu;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,11 +11,11 @@ import android.view.ContextThemeWrapper;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodu.googlemapsv2.route.Routing;
+import com.example.foodu.googlemapsv2.utilities.Utils;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.example.foodu.googlemapsv2.route.Routing;
-import com.example.foodu.googlemapsv2.utilities.Utils;
 
 public class Maps extends Activity {
 

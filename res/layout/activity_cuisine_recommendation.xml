@@ -3,7 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="1"
-    android:fillViewport="true" >
+    android:fillViewport="true" 
+    android:background="@drawable/bg" >
+
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -89,6 +91,8 @@
                     android:id="@+id/button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="16sp" />
 
                 <LinearLayout
@@ -137,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="#fff3f3f3"
+                    android:background="#f5ecda"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"

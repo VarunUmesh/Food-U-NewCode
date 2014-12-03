@@ -1,11 +1,11 @@
 package com.example.foodu;
 
-import model.User;
 import helper.DatabaseHandler;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
+import model.User;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class CreateAccount extends ActionBarActivity implements OnClickListener {

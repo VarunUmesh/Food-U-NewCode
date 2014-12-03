@@ -7,19 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import model.Eatery;
-
-import com.example.adapters.CustomListAdapter;
-import com.example.adapters.ExpandableListAdapter;
-import com.example.adapters.ItemModel;
-
-import android.support.v7.app.ActionBarActivity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,12 +18,15 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.adapters.CustomListAdapter;
+import com.example.adapters.ExpandableListAdapter;
+import com.example.adapters.ItemModel;
 
 public class Search extends ActionBarActivity implements OnItemClickListener, OnGroupExpandListener, OnGroupClickListener  {
 
@@ -51,10 +45,13 @@ public class Search extends ActionBarActivity implements OnItemClickListener, On
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
-
+		String message = "";
 		final Intent queryIntent = getIntent();
-		String message = queryIntent.getStringExtra("SEARCH_MESSAGE")
-				.toLowerCase();
+		String searchMsg = queryIntent.getStringExtra("SEARCH_MESSAGE");
+		if(searchMsg!="" && searchMsg != null){
+			System.out.println("search message== " + queryIntent.getStringExtra("SEARCH_MESSAGE"));
+			message = queryIntent.getStringExtra("SEARCH_MESSAGE").toLowerCase();
+		}
 		setTitle(message);
 
 		List<Eatery> eateries = db.getEateries();

@@ -3,8 +3,6 @@ package com.example.adapters;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.foodu.R;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.foodu.R;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
  

@@ -1,18 +1,16 @@
 package com.example.foodu;
 
+import helper.DatabaseHandler;
+
 import java.util.Date;
 
 import model.Eatery;
-import helper.DatabaseHandler;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class UserReview extends Activity implements OnClickListener {
 
@@ -122,7 +119,6 @@ public class UserReview extends Activity implements OnClickListener {
 									cleanliness.getRating(),
 									service.getRating(),
 									comments.getEditableText().toString(), new Date()));
-							//Intent intent = new Intent(this, com.example.foodu.Review.class);
 				            Intent intent = new Intent(UserReview.this, Review.class);
 
 						    startActivity(intent);
