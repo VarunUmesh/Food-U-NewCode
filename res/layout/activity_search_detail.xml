@@ -139,8 +139,7 @@
         <HorizontalScrollView
         
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -152,14 +151,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/gopher" />
+                android:src="@drawable/papajohnsfood" />
 
             <ImageView
                 android:id="@+id/numberDay5s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/topiofood" />
+                android:src="@drawable/macandcheese" />
 
             <ImageView
                 android:id="@+id/numberDaysd"
@@ -173,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitStart"
-                android:src="@drawable/topiofood" />
+                android:src="@drawable/greenstogofood" />
 
             <ImageView
                 android:id="@+id/numberDayse"
@@ -239,10 +238,16 @@
             android:text="Direction" >
         </Button>
     </LinearLayout>
-    <TextView android:id="@+id/message" android:layout_below="@id/buttons" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></TextView>
-
-    <ListView
+    
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/buttons" >
+    </TextView>
+    
+<ListView
         android:id="@+id/reviews"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

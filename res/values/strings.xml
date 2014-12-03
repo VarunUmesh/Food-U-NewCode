@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Food@U</string>
     <string name="profile">Profile</string>
     <string name="ok">OK</string>
@@ -41,7 +40,7 @@
     <string name="gluten_free">Gluten Free</string>
     <string name="toggle_button3">Toggle3</string>
     <string name="title_activity_search_detail">SearchDetail</string>
-    <string name="about">Food@U is a restaurant finder and recommender application that allows you to find restaurants and get restaurant recommendations for your next meal; and allows you to review restaurants. It also notifies you about free food events on campus.</string>
+    <string name="about">Food@U is a restaurant finder and decision support application for the U of M community. It helps users make immediate decisions about where to eat. It also provides an efficient and quick way of reviewing restaurants. Food@U also provides notifications about free food events at the U.</string>
     <string name="title_activity_notification">Free Food</string>
     <string name="menu_delete">Delete</string>
     <string name="menu_share">Share</string>

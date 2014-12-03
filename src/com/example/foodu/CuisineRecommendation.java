@@ -228,7 +228,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 				new AlertDialog.Builder(this, R.style.AlertDialogCustom);
 				builder.setTitle("Sorry")
 						.setMessage(
-								"Sorry you did not like our recommendations. Build your profile and try again.")
+								"Sorry you did not like our recommendations. Please try again.")
 						.setPositiveButton("OK",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,

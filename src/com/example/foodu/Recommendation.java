@@ -89,6 +89,8 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 			final ArrayList<Integer> seletedItems=new ArrayList<Integer>();
 			final boolean[] states = new boolean[items.length];
 		    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		    final AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+
 		    builder.setTitle("Which cuisine do you want?");
 		    builder.setMultiChoiceItems(items, states, new DialogInterface.OnMultiChoiceClickListener(){
 		        public void onClick(DialogInterface dialogInterface, int item, boolean state) {
@@ -119,10 +121,19 @@ public class Recommendation extends ActionBarActivity implements OnClickListener
 				    startActivity(userrecommendation);
 		           }
 		           else{
-		        	   Toast.makeText(getApplicationContext(), "Make a Cuisine Recommendation", Toast.LENGTH_LONG);
+		        	   builder1.setTitle("Try again!");
+		        	    builder1.setMessage("You did not select a cuisine.");
+		        	    builder1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+		        	        public void onClick(DialogInterface dialog, int whichButton) {
+		        	        	Intent userrecommendation = new Intent(Recommendation.this, Recommendation.class);
+		        			    startActivity(userrecommendation);
+		        	    }});
+		        	   builder1.create().show();		        	   
+		        	  // Toast.makeText(getApplicationContext(), "Select a cuisne", Toast.LENGTH_LONG).show();
 		           }
 		        }
 		    });
+		    
 		    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int id) {
 		             dialog.cancel();

@@ -5,13 +5,17 @@ import helper.DatabaseHandler;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.Eatery;
 import model.User;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,7 +92,9 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 		quality.setMax(5);
 		//quality.setBackgroundColor(getResources().getColor(R.color.green));
 		if(reviews == null || reviews.size() < 1){
-	    	message.setText("No review Available");
+	    	message.setTextSize(18);
+	    	message.setGravity(Gravity.CENTER_HORIZONTAL);
+			message.setText("No reviews available");
 	    }
 		quality.setProgress(3);
 		title.setText(eatery.getName());
@@ -114,6 +120,8 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 	public void onClick(View arg0) {
 		int id = arg0.getId();
 		Intent i;
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
 		switch(id){
 		case R.id.review:
 			i = new Intent(this, UserReview.class);
@@ -126,9 +134,23 @@ public class SearchDetail extends ActionBarActivity implements OnClickListener {
 			//startActivity(i);
 			break;
 		case R.id.viewmenu:
-			Intent i1 = new Intent(this,MainActivity.class);
-			startActivity(i1);
+			builder.setTitle("Sorry");
+			builder.setMessage(
+					"The menus will be uploaded soon.Please check again later.");
+			builder.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,
+								int which) {
+				            Intent intent = new Intent(SearchDetail.this, SearchDetail.class);
+						    startActivity(intent);
+						}
+					});
+			builder.create().show();
 			break;
+			
+			/*Intent i1 = new Intent(this,MainActivity.class);
+			startActivity(i1);
+			break;*/
 			
 		/*case R.id.menu1:
 			Intent i1 = new Intent(this,Maps.class);
