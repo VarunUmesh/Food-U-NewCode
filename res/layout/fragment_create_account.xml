@@ -19,7 +19,6 @@
             android:id="@+id/fname"
             style="@style/profiletxt"
             android:inputType="textPersonName" >
-
             <requestFocus />
         </EditText>
 
@@ -142,6 +141,7 @@
                 android:layout_alignRight="@+id/gluten"
                 android:layout_alignTop="@id/textView6"
                 android:layout_marginRight="5dp"
+                android:gravity="center"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
                 android:inputType="number" />

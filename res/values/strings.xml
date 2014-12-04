@@ -86,16 +86,15 @@
         <item>Mexican</item>
         <item>Vietnamese</item>
     </string-array>
-    <string-array name="Cuisines_array">
+    <string-array name="Cuisines_array">     
         <item>Select</item>
-        <item>Indian</item>
         <item>American</item>
-        <item>Italian</item>
-        <item>Mexican</item>
+        <item>Cafe</item>
         <item>Chinese</item>
-        <item>Thai</item>
+        <item>Italian</item>
+        <item>Juices</item>
+        <item>Mexican</item>
         <item>Vietnamese</item>
-        <item>MiddleEast</item>
     </string-array>
 
     <string name="select_cuisine">Select a Cuisine</string>

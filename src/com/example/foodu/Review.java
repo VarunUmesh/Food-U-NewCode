@@ -105,9 +105,7 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		        				movieList1.add(new ItemModel(e.getLogo(), e.getName(), e
 		        						.getAddress1() + "\n" + e.getAddress2(), "", "", "", e
 		        						.getId()));
-		        			System.out.println("movie List == "+movieList1.toString());
 		        			listView1 = (ListView) findViewById(R.id.list);
-		        			System.out.println("listview1 == "+listView1);
 		        			adapter = new CustomListAdapter(Review.this, movieList1);
 		        			listView1.setAdapter(adapter);
 		        			listView1.setOnItemClickListener(Review.this);

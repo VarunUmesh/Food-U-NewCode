@@ -2,6 +2,8 @@ package com.example.foodu;
 
 import helper.DatabaseHandler;
 import model.User;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -73,21 +75,21 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
 		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner1.setAdapter(adapter1);
-		spinner1.setSelection(adapter1.getPosition("Indian"));
+		spinner1.setSelection(adapter1.getPosition("Chinese"));
 		
 		Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
 		ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
 		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
 		adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner2.setAdapter(adapter2);
-		spinner2.setSelection(adapter2.getPosition("Chinese"));
+		spinner2.setSelection(adapter2.getPosition("Italian"));
 		
 		Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
 		ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
 		        R.array.Cuisines_array, android.R.layout.simple_spinner_item);
 		adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner3.setAdapter(adapter3);
-		spinner3.setSelection(adapter3.getPosition("American"));
+		spinner3.setSelection(adapter3.getPosition("Mexican"));
 		
 		return true;
 	}
@@ -123,17 +125,30 @@ public class CreateAccount extends ActionBarActivity implements OnClickListener 
 
 	@Override
 	public void onClick(View v) {
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
 		switch(v.getId())
 		{
 			//case R.id.profile:
 		case R.id.create:
-			db.addUser(new User(email.getText().toString().toLowerCase(), 
-								password.getText().toString(), 
-								fname.getText().toString(), 
-								lname.getText().toString(), 
-								0, 0, 0, 8));
-			Intent intent = new Intent(this, MainActivity.class);
-		    startActivity(intent); 
+			
+			builder.setTitle("Thank You");
+			builder.setMessage(
+					"Your profile is saved.");
+			builder.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,
+								int which) {
+							db.addUser(new User(email.getText().toString().toLowerCase(), 
+									password.getText().toString(), 
+									fname.getText().toString(), 
+									lname.getText().toString(), 
+									0, 0, 0, 8));
+				Intent intent = new Intent(CreateAccount.this, MainActivity.class);
+			    startActivity(intent); 
+						}
+					});
+			builder.create().show();
 			break;
 		}
 	}

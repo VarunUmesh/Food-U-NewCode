@@ -122,9 +122,7 @@ public class UserReview extends Activity implements OnClickListener {
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,
 								int which) {
-							System.out.println("title before passing ==== "+title.getText().toString());
 							Eatery eatery = db.getEatery(title.getText().toString());
-							System.out.println("eatery title in userreview = "+eatery.getId() + "title === "+eatery.getName());
 					 		int eateryID = eatery.getId();
 							db.addReview(new model.Review("poual001@umn.edu",eateryID, food.getRating(),
 									ambience.getRating(),
@@ -133,7 +131,6 @@ public class UserReview extends Activity implements OnClickListener {
 									service.getRating(),
 									comments.getEditableText().toString(), new Date()));
 				            Intent intent = new Intent(UserReview.this, Review.class);
-
 						    startActivity(intent);
 						}
 					});
