@@ -59,7 +59,7 @@ public class Maps extends Activity {
 	    	
 	    	startLatitude = myCurrentLoc.getLatitude();
 	    	startLongitude = myCurrentLoc.getLongitude();
-	    	Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + startLatitude + "\nLong: " + startLongitude, Toast.LENGTH_LONG).show();
+	    	/*Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + startLatitude + "\nLong: " + startLongitude, Toast.LENGTH_LONG).show();*/
 	    	start = new LatLng(startLatitude, startLongitude);
 	    }
 	    final TextView txtDistance = (TextView) findViewById(R.id.txtSpeed);
