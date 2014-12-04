@@ -160,17 +160,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 						.image(R.drawable.bajasol)));
 		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower",
 				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0,
-				0, helper.image(R.drawable.caribou)));
-		eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center",
-				"Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper
-						.image(R.drawable.gopher)));
+				0, helper.image(R.drawable.cariboulogo)));
+	//	eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center","Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.gopher)));
 		eateries.add(new Eatery(5, "Panda Express",
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0, 0, helper
 						.image(R.drawable.panda)));
-		eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library",
-				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,
-				1, helper.image(R.drawable.wiseowl)));
+	//	eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library","Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,1, helper.image(R.drawable.wiseowl)));
 		eateries.add(new Eatery(7, "Jamba Juice",
 				"Coffman Union's Minnesota Marketplace", "First Floor",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
@@ -599,6 +595,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 	}
 
+	public Eatery getEatery(String title) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		//System.out.println("title in "+title.toLowerCase().toString());
+		//Cursor cursor = db.query(TABLE_EATERY, new String[] { String.valueOf(title) }, EATERY_NAME + "=?",null ,null, null, null, null);
+        Cursor cursor = db.query(TABLE_EATERY, null, EATERY_NAME+ " = " + "'" + title + "'" , null, null, null, null);
+        System.out.println("cursor == "+cursor);
+		try {
+			if (cursor != null) {
+				cursor.moveToFirst();
+				if(!cursor.isNull(cursor.getInt(0))){
+				Eatery eatery = new Eatery(cursor.getInt(0),
+						cursor.getString(1), cursor.getString(2),
+						cursor.getString(3), cursor.getString(4),
+						Integer.parseInt(cursor.getString(5)),
+						Integer.parseInt(cursor.getString(6)),
+						Integer.parseInt(cursor.getString(7)),
+						Integer.parseInt(cursor.getString(8)),
+						Integer.parseInt(cursor.getString(9)),
+						Integer.parseInt(cursor.getString(10)),
+						Integer.parseInt(cursor.getString(11)),
+						Integer.parseInt(cursor.getString(12)),
+						cursor.getBlob(13));
+				cursor.close();
+				return eatery;
+			}
+			}
+			return null;
+		} finally {
+			cursor.close();
+		}
+	}
+	
 	public boolean validateUser(String id, String password) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_USERS,

@@ -2,7 +2,9 @@ package com.example.foodu;
 
 import helper.DatabaseHandler;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import model.Eatery;
 import android.app.Activity;
@@ -69,20 +71,27 @@ public class UserReview extends Activity implements OnClickListener {
 		comments = (EditText)findViewById(R.id.et_comments);
 		submitReview = (Button)findViewById(R.id.btn_submit);
 		
-		
 		submitReview.setOnClickListener(this);
-		
-		
-		if(review != null){
-		ambience.setRating(review.getAmbience());
-		economy.setRating(review.getEconomy());
-		cleanliness.setRating(review.getCleanliness());
-		service.setRating(review.getService());
-		food.setRating(review.getFood());
-		comments.setText(review.getComment());
-		submitReview.setVisibility(View.INVISIBLE);
+		List<Eatery> eateries = db.getEateries();
+ 		List<Eatery> result = new ArrayList<Eatery>();
+ 		
+ 		
+      
+		for (Eatery e : eateries) {
+			if (e.getName().toLowerCase().contentEquals(title.toString())) {
+				result.add(e);
+			}
 		}
 		
+		if(review != null){
+			ambience.setRating(review.getAmbience());
+			economy.setRating(review.getEconomy());
+			cleanliness.setRating(review.getCleanliness());
+			service.setRating(review.getService());
+			food.setRating(review.getFood());
+			comments.setText(review.getComment());
+			submitReview.setVisibility(View.INVISIBLE);
+		}
 		return true;
 	}
 
@@ -113,7 +122,11 @@ public class UserReview extends Activity implements OnClickListener {
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog,
 								int which) {
-							db.addReview(new model.Review("poual001@umn.edu", 1, food.getRating(),
+							System.out.println("title before passing ==== "+title.getText().toString());
+							Eatery eatery = db.getEatery(title.getText().toString());
+							System.out.println("eatery title in userreview = "+eatery.getId() + "title === "+eatery.getName());
+					 		int eateryID = eatery.getId();
+							db.addReview(new model.Review("poual001@umn.edu",eateryID, food.getRating(),
 									ambience.getRating(),
 									economy.getRating(),
 									cleanliness.getRating(),

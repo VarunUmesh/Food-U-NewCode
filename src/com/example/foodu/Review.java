@@ -30,8 +30,10 @@ import com.example.adapters.ItemModel;
 public class Review extends ActionBarActivity implements OnItemClickListener {
 	
 	private List<ItemModel> movieList = new ArrayList<ItemModel>();
+	private List<ItemModel> movieList1 = new ArrayList<ItemModel>();
+
 	private DatabaseHandler db = new DatabaseHandler(this);
-    private ListView listView;
+    private ListView listView, listView1;
     private CustomListAdapter adapter;
 
 	@Override
@@ -73,22 +75,44 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 			SearchManager searchManager =
 			           (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 			MenuItem searchItem = menu.findItem(R.id.action_search);
-			  SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+			  final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 			
 			    searchView.setSearchableInfo(
 			            searchManager.getSearchableInfo(getComponentName()));
 			    searchView.setIconifiedByDefault(false); 
+			   
 			    SearchView.OnQueryTextListener textChangeListener = new SearchView.OnQueryTextListener()
 		        {
 		            @Override
 		            public boolean onQueryTextSubmit(String query)
 		            {
-		                
+		            	List<Eatery> eateries = db.getEateries();
+		         		List<Eatery> result = new ArrayList<Eatery>();
 		                System.out.println("on query submit: "+query);
-		                Intent searchIntent = new Intent(Review.this, UserReview.class);
-		                searchIntent.putExtra("EATERY", 1);
-		                startActivity(searchIntent);
-
+		              
+		        		for (Eatery e : eateries) {
+		        			if (e.getName().toLowerCase().contains(query)) {
+		        				result.add(e);
+		        			}
+		        		}
+		        		System.out.println("result in review :" + result);
+		        		if(result.size() < 1){
+		        			Intent searchIntent = new Intent(Review.this, Review.class);
+			                startActivity(searchIntent);
+		        		} else {
+		        			setContentView(R.layout.activity_search);
+		        			for (Eatery e : result)
+		        				movieList1.add(new ItemModel(e.getLogo(), e.getName(), e
+		        						.getAddress1() + "\n" + e.getAddress2(), "", "", "", e
+		        						.getId()));
+		        			System.out.println("movie List == "+movieList1.toString());
+		        			listView1 = (ListView) findViewById(R.id.list);
+		        			System.out.println("listview1 == "+listView1);
+		        			adapter = new CustomListAdapter(Review.this, movieList1);
+		        			listView1.setAdapter(adapter);
+		        			listView1.setOnItemClickListener(Review.this);
+		        		}
+		        		searchView.clearFocus();
 		                return true;
 		            }
 
@@ -100,6 +124,8 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		            }
 		        };
 		        searchView.setOnQueryTextListener(textChangeListener);
+		        
+
 			}
 			catch(Exception e){
 				Log.e("test", e.getMessage() + ", herej" );
@@ -125,7 +151,6 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		ItemModel item = (ItemModel) adapter.getItem(arg2);
 		Intent intent = new Intent(this, UserReview.class);
 		intent.putExtra("EATERY", item.getKey());
-		intent.putExtra("USER", item.getId());
-	    startActivity(intent);
+		startActivity(intent);
 	}
 }
