@@ -149,6 +149,7 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		ItemModel item = (ItemModel) adapter.getItem(arg2);
 		Intent intent = new Intent(this, UserReview.class);
 		intent.putExtra("EATERY", item.getKey());
+		intent.putExtra("USER", item.getId());
 		startActivity(intent);
 	}
 }
