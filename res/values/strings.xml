@@ -100,6 +100,6 @@
     <string name="select_cuisine">Select a Cuisine</string>
     <string name="cuisine_two">Cuisine 2</string>
     <string name="cuisine_three">Cuisine 3</string>
-    <string name="title_activity_maps">Maps</string>
+    <string name="title_activity_maps">Directions</string>
 
 </resources>
