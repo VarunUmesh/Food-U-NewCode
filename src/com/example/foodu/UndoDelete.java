@@ -48,7 +48,7 @@ public class UndoDelete {
 
         mUndoHandler.removeCallbacks(mUndoRunnable);
         mUndoHandler.postDelayed(mUndoRunnable,
-               5000);
+               15000);
 
         mUndoView.setVisibility(View.VISIBLE);
  
