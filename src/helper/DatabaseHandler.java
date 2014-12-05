@@ -150,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				1, 1, 6));
 
 		List<Eatery> eateries = new ArrayList<Eatery>();
-		eateries.add(new Eatery(1, "Topio's",
+		eateries.add(new Eatery(1, "Topios",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 1, 1, helper
 						.image(R.drawable.topiologo)));
@@ -161,41 +161,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		eateries.add(new Eatery(3, "Caribou Coffee", "Moos Tower",
 				"Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0,
 				0, helper.image(R.drawable.cariboulogo)));
-	//	eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center","Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.gopher)));
-		eateries.add(new Eatery(5, "Panda Express",
+		//eateries.add(new Eatery(4, "Hay Loft Cafe", "Ben Pomeroy Center","Ground Level", "St. Paul", 0, 1, 0, 1, 0, 1, 0, 0, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(4, "Panda Express",
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 0, 0, helper
 						.image(R.drawable.panda)));
-	//	eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library","Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,1, helper.image(R.drawable.wiseowl)));
-		eateries.add(new Eatery(7, "Jamba Juice",
+		//eateries.add(new Eatery(6, "Wise Owl Cafe", "Walter Library","Lower Level", "East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1,1, helper.image(R.drawable.wiseowl)));
+		eateries.add(new Eatery(5, "Jamba Juice",
 				"Coffman Union's Minnesota Marketplace", "First Floor",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.jambajuice)));
-		eateries.add(new Eatery(8, "Papa John's",
+		eateries.add(new Eatery(6, "Papa John's",
 				"St. Paul Student Center's Terrace Cafe", "Main Level",
 				"St. Paul", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.papajohn)));
-		eateries.add(new Eatery(9, "Burger Studio",
+		eateries.add(new Eatery(7, "Burger Studio",
 				"Carlson School of Management", "Lower Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.burgerstudio)));
 		//eateries.add(new Eatery(10, "Bistro West Restaurant","Humphrey Center", "Lower Level", "West Bank, Minneapolis", 0,1, 0, 1, 0, 1, 1, 1, helper.image(R.drawable.gopher)));
-		eateries.add(new Eatery(11, "Chick-fil-A",
+		eateries.add(new Eatery(8, "Chick-fil-A",
 				"Coffman Union's Minnesota Marketplace", "Ground Level",
 				"East Bank, Minneapolis", 0, 1, 0, 1, 0, 0, 0, 1, helper
 						.image(R.drawable.chickfilalogo)));
-		eateries.add(new Eatery(12, "Greens To Go",
+		eateries.add(new Eatery(9, "Greens To Go",
 				"St. Paul Student Center's Terrace Cafe", "Main Level",
 				"St. Paul", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.greenstogologo)));
-		eateries.add(new Eatery(13, "Subway",
+		eateries.add(new Eatery(10, "Subway",
 				"Essentials Market in Blegen Hall", "Lowel Level",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.subway)));
-		// eateries.add(new Eatery(14, "Abduls Afandy",
-		// "614 Washington Ave SE","", "West Bank, Minneapolis", 0, 1, 0, 1, 0,
-		// 1, 1, 1, helper.image(R.drawable.gopher)));
-		eateries.add(new Eatery(15, "Bun Mi", "614 Washington Ave SE", "",
+		 //eateries.add(new Eatery(14, "Abduls Afandy",
+		 //"614 Washington Ave SE","", "West Bank, Minneapolis", 0, 1, 0, 1, 0,
+		 //1, 1, 1, helper.image(R.drawable.gopher)));
+		eateries.add(new Eatery(11, "Bun Mi", "614 Washington Ave SE", "",
 				"West Bank, Minneapolis", 0, 1, 0, 1, 0, 1, 1, 1, helper
 						.image(R.drawable.bunmilogo)));
 
@@ -212,47 +212,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				"Love the Mint Condition Mocha!!", new Date()));
 		// reviews.add(new Review("shahx118@umn.edu", 3, 3, 2, 3, 3,
 		// 1,"Pumpkin Spice Latte is awesome.", new Date()));
-		reviews.add(new Review("poual001@umn.edu", 5, 2, 1, 4, 4, 3, "",
+		reviews.add(new Review("poual001@umn.edu", 4, 2, 1, 4, 4, 3, "",
 				new Date()));
-		reviews.add(new Review("shahx118@umn.edu", 5, 4, 4, 5, 3, 1, "",
-				new Date()));
-		reviews.add(new Review("poual001@umn.edu", 7, 2, 1, 4, 4, 3, "",
+		//reviews.add(new Review("shahx118@umn.edu", 5, 4, 4, 5, 3, 1, "",
+				//new Date()));
+		reviews.add(new Review("poual001@umn.edu", 9, 2, 1, 4, 4, 3, "",
 				new Date()));
 		// reviews.add(new Review("shahx118@umn.edu", 7, 4, 4, 5, 3, 1, "",new
 		// Date()));
-		reviews.add(new Review("poual001@umn.edu", 8, 2, 1, 4, 4, 3, "",
+		reviews.add(new Review("poual001@umn.edu", 6, 2, 1, 4, 4, 3, "",
 				new Date()));
 		// reviews.add(new Review("shahx118@umn.edu", 8, 4, 4, 5, 3, 1, "",new
 		// Date()));
-		reviews.add(new Review("poual001@umn.edu", 9, 2, 1, 4, 4, 3,
+		reviews.add(new Review("poual001@umn.edu", 7, 2, 1, 4, 4, 3,
 				"Burgers are pretty good", new Date()));
 		// reviews.add(new Review("shahx118@umn.edu", 9, 4, 4, 5, 3, 1, "",new
 		// Date()));
-		reviews.add(new Review("poual001@umn.edu", 15, 4, 4, 5, 3, 1,
+		reviews.add(new Review("poual001@umn.edu", 11, 4, 4, 5, 3, 1,
 				"Best Vietnamese Food", new Date()));
 
 		List<MenuItem> menuitems = new ArrayList<MenuItem>();
-		menuitems.add(new MenuItem(13, "Veggie Delight", 5, helper
+		menuitems.add(new MenuItem(10, "Veggie Delight", 5, helper
 				.image(R.drawable.subwayfood)));
 		menuitems.add(new MenuItem(3, "Chai Tea Latte", 4.99, helper
 				.image(R.drawable.cariboufood)));
-		menuitems.add(new MenuItem(5, "Eggplant Tofu", 6.50, helper
+		menuitems.add(new MenuItem(4, "Eggplant Tofu", 6.50, helper
 				.image(R.drawable.pandaexpressfood)));
 		menuitems.add(new MenuItem(1, "Veggie Pizza Slice", 3, helper
 				.image(R.drawable.topiofood)));
-		menuitems.add(new MenuItem(8, "Cheese Pizza", 3.25, helper
+		menuitems.add(new MenuItem(6, "Cheese Pizza", 3.25, helper
 				.image(R.drawable.papajohnsfood)));
-		menuitems.add(new MenuItem(7,
+		menuitems.add(new MenuItem(5,
 				"Summer delight Smoothie in different flavors", 6.5, helper
 						.image(R.drawable.jambajuicefood)));
 		menuitems.add(new MenuItem(2, "Chicken Burrito", 7, helper
 				.image(R.drawable.bajasolfood)));
-		menuitems.add(new MenuItem(15, "Mock Duck Curry Sandwich", 6.4, helper
+		menuitems.add(new MenuItem(11, "Mock Duck Curry Sandwich", 6.4, helper
 				.image(R.drawable.bunmifood)));
-		menuitems.add(new MenuItem(12, "Fresh Garden Salad", 6, helper
+		menuitems.add(new MenuItem(9, "Fresh Garden Salad", 6, helper
 				.image(R.drawable.greenstogofood)));
-		menuitems.add(new MenuItem(11, "Chicken Burger", 6.4, helper
+		menuitems.add(new MenuItem(8, "Chicken Burger", 6.4, helper
 				.image(R.drawable.chicfilachickenfood)));
+		menuitems.add(new MenuItem(7, "Fish Sandwich", 6.5, helper
+				.image(R.drawable.sandwish)));
 
 		ContentValues values;
 
@@ -437,6 +439,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			return eateries;
 		} finally {
 			cursor.close();
+			db.close();
 		}
 	}
 
@@ -461,6 +464,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			return reviews;
 		} finally {
 			cursor.close();
+			db.close();
 		}
 	}
 
@@ -524,10 +528,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					// }
 				} while (cursor.moveToNext());
 			}
-			return reviews;
 		} finally {
 			cursor.close();
+			db.close();
 		}
+		return reviews;
 	}
 
 	public void addReview(Review review) {
@@ -569,10 +574,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public Eatery getEatery(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db.query(TABLE_EATERY, null, EATERY_ID + "=?",
-				new String[] { String.valueOf(id) }, null, null, null, null);
+		Cursor cursor = db.query(TABLE_EATERY, null, EATERY_ID + "=" + id, null, null, null, null);
 		try {
-			if (cursor != null) {
+			if (cursor != null && cursor.moveToNext()) {
 				cursor.moveToFirst();
 				Eatery eatery = new Eatery(cursor.getInt(0),
 						cursor.getString(1), cursor.getString(2),

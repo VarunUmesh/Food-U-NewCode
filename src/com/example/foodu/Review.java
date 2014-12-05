@@ -44,8 +44,10 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		List<model.Review> reviews = new ArrayList<model.Review>();
 		reviews = db.getReviews();
+		System.out.println("reviews == "+reviews.size() + " text === "+ reviews);
+		if(reviews.size() >=1){
 		for(model.Review r : reviews)
-			if(r.getComment().length() > 0){
+			if(r!= null && r.getComment().length() > 0){
 				User user = db.getUser(r.getEmail());
 				Eatery eat = db.getEatery(r.getEatery());
 				movieList.add(new ItemModel(eat.getLogo(), eat.getName(), r.getComment(), user.toString(), df.format(r.getDate()), r.getEmail(), r.getEatery()));
@@ -58,6 +60,7 @@ public class Review extends ActionBarActivity implements OnItemClickListener {
         adapter = new CustomListAdapter(this, movieList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+		}
 	}
 	
 	@Override

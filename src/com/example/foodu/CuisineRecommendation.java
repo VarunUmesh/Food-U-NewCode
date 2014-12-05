@@ -107,6 +107,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		likeStatus  = (LinearLayout) findViewById(R.id.myImageViewText);
 
 		eateryCount = db.getEateries().size();
+		System.out.println("eateryCount ===== "+eateryCount);
 		
 		
 		if(randomChoice > -1){
@@ -151,7 +152,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 		int r = this.selection.get(rand.nextInt(this.selection.size()));
 		return r;
 	}
-
+	
 	public static int randInt(int min, int max) {
 		Random rand = new Random();
 		int randomNum = rand.nextInt((max - min) + 1) + min;
@@ -282,7 +283,7 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 
 		case 0:
 			/* American food */
-			return 13;
+			return 10;
 
 		case 1:
 			/* Cafe */
@@ -290,22 +291,22 @@ public class CuisineRecommendation extends Activity implements OnClickListener, 
 
 		case 2:
 			/* Chinese */
-			return 5;
+			return 4;
 
 		case 3:
 			/* Italian */
-			return 1;
+			return 6;
 
 		case 4:
 			/* Juice */
-			return 7;
-
+			return 5;
+			/*mexican*/
 		case 5:
 			return 2;
 
 		case 6:
 			/* Vietnamese */
-			return 15;
+			return 11;
 
 		default:
 			return getRecommendation();
